@@ -11,5 +11,4 @@
 let jeu = Game()
 jeu.gameRules()
 
-// Test du jeu
 
