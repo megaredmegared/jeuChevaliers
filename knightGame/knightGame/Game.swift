@@ -76,13 +76,15 @@ class Game {
             }
             
         }
-        
-        // Boucle du menu à revoir pour prendre stop ou run en paramètre ????????????? <-------------------------------
-        
-        func gameMenu(run: Bool) {
-            while run {
-                gameStart()
-            }
+    }
+    
+    // Boucle du menu à revoir pour prendre stop ou run en paramètre ????????????? <-------------------------------
+    
+    func gameMenu(run: Bool) {
+        while run {
+            gameStart()
         }
-        
+    }
+    
 }
+
