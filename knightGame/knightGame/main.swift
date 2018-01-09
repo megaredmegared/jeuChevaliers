@@ -8,7 +8,7 @@
 
 // import Foundation optionel???
 
-let jeu = Game()
-jeu.gameRules()
+let play = Game()
+play.gameMenu(run: true)
 
 
