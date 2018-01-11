@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D142C932007649F001E938B /* TeamOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D142C922007649F001E938B /* TeamOne.swift */; };
 		4D48F6141FF3C2610093FB18 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48F6131FF3C2610093FB18 /* main.swift */; };
 		4D5090C52004B5AD00038671 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090C42004B5AD00038671 /* Game.swift */; };
 		4D5090C72004BD6A00038671 /* EntrieError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090C62004BD6A00038671 /* EntrieError.swift */; };
-		4D5090C92004C91300038671 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090C82004C91300038671 /* Team.swift */; };
 		4D5090CB2004FDCB00038671 /* Dwarf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090CA2004FDCB00038671 /* Dwarf.swift */; };
 		4D5090CD2004FE3600038671 /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090CC2004FE3600038671 /* Warrior.swift */; };
 		4D5090CF2004FEF300038671 /* Colossus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090CE2004FEF300038671 /* Colossus.swift */; };
@@ -30,11 +30,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4D142C922007649F001E938B /* TeamOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamOne.swift; sourceTree = "<group>"; };
 		4D48F6101FF3C2610093FB18 /* knightGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = knightGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D48F6131FF3C2610093FB18 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		4D5090C42004B5AD00038671 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		4D5090C62004BD6A00038671 /* EntrieError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntrieError.swift; sourceTree = "<group>"; };
-		4D5090C82004C91300038671 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		4D5090C42004B5AD00038671 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		4D5090C62004BD6A00038671 /* EntrieError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrieError.swift; sourceTree = "<group>"; };
 		4D5090CA2004FDCB00038671 /* Dwarf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dwarf.swift; sourceTree = "<group>"; };
 		4D5090CC2004FE3600038671 /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
 		4D5090CE2004FEF300038671 /* Colossus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colossus.swift; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 				4D5090C42004B5AD00038671 /* Game.swift */,
 				4D48F6131FF3C2610093FB18 /* main.swift */,
 				4D5090CA2004FDCB00038671 /* Dwarf.swift */,
-				4D5090C82004C91300038671 /* Team.swift */,
+				4D142C922007649F001E938B /* TeamOne.swift */,
 				4D5090CE2004FEF300038671 /* Colossus.swift */,
 				4D5090D02005015200038671 /* TeamMember.swift */,
 				4D5090CC2004FE3600038671 /* Warrior.swift */,
@@ -142,13 +142,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D5090CD2004FE3600038671 /* Warrior.swift in Sources */,
-				4D5090C92004C91300038671 /* Team.swift in Sources */,
 				4D5090D12005015200038671 /* TeamMember.swift in Sources */,
 				4D5090C72004BD6A00038671 /* EntrieError.swift in Sources */,
 				4D5090CF2004FEF300038671 /* Colossus.swift in Sources */,
 				4D5090CB2004FDCB00038671 /* Dwarf.swift in Sources */,
 				4D5090C52004B5AD00038671 /* Game.swift in Sources */,
 				4D48F6141FF3C2610093FB18 /* main.swift in Sources */,
+				4D142C932007649F001E938B /* TeamOne.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

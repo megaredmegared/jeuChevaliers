@@ -60,20 +60,13 @@ class Game {
         """)
         
         if let teamName = readLine() {
-            let teamOne = Team(name: teamName) // création de la première équipe
+            let teamOne = TeamOne(name: teamName) // création de la première équipe
             print("""
                 
                 La première équipe s'appelle \(teamOne.teamName)
                 
                 """)
-            if let teamName = readLine() {
-                let teamTwo = Team(name: teamName) // création de la deuxième équipe
-                print("""
-                    
-                    La première équipe s'appelle \(teamTwo.teamName)
-                    
-                    """)
-            }
+            // teamOne.createMembers(memberName: <#T##String#>)
             
         }
     }

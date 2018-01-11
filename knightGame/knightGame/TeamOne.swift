@@ -1,11 +1,11 @@
 // class de création d'une équipe
 
-class Team {
+class TeamOne {
     var teamName = ""
     var teamLivesPoints = 10
-    var member1: TeamMember
-    var member2: TeamMember
-    var member3: TeamMember
+    //var member1: TeamMember
+    //var member2: TeamMember
+    //var member3: TeamMember
     
     func createMembers(memberName: String) {
         print("""
@@ -19,7 +19,7 @@ class Team {
         if let speciality = readLine() {
             switch speciality {
             case "1":
-                member1 = .Dwarf
+                print("pas de nain pour l'instant")//member1 = .Dwarf
             case "2":
                 print("pas de guerrier pour l'instant")
             case "3":
@@ -34,3 +34,4 @@ class Team {
     }
     
 }
+
