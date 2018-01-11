@@ -9,6 +9,6 @@
 // import Foundation optionel???
 
 let play = Game()
-play.gameMenu(run: true)
+play.gameMenu()
 
 

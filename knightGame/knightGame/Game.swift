@@ -3,6 +3,8 @@
 // **********************
 
 class Game {
+    var runGame = true // Paramètre du jeu actif ou non
+    
     
     // Affichage au démarrage du jeu
     
@@ -24,7 +26,7 @@ class Game {
                 gameRules()
                 
             case "3" : // On quitte le jeu
-                gameMenu(run: false)
+                runGame = false
                 
             default : // On affiche un message d'erreur pour tout saisie invalide
                 print("""
@@ -66,15 +68,20 @@ class Game {
                 La première équipe s'appelle \(teamOne.teamName)
                 
                 """)
-            // teamOne.createMembers(memberName: <#T##String#>)
-            
+            print("""
+
+            Choisissez le nom de votre premier personnage:
+
+            """)
+            teamOne.createMembers()
+            print("le premier membre de l'équipe s'appelle \(teamOne.member1)")
         }
     }
     
-    // Boucle du menu à revoir pour prendre stop ou run en paramètre ????????????? <-------------------------------
+    // Boucle de lancement du jeu
     
-    func gameMenu(run: Bool) {
-        while run {
+    func gameMenu() {
+        while runGame {
             gameStart()
         }
     }

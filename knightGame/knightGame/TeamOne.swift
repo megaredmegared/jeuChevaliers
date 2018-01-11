@@ -3,19 +3,15 @@
 class TeamOne {
     var teamName = ""
     var teamLivesPoints = 10
-    //var member1: TeamMember
+    var member1 = ""
     //var member2: TeamMember
     //var member3: TeamMember
     
-    func createMembers(memberName: String) {
-        print("""
-
-        Choisissez la spécialité de votre personnage:
-
-        1. Nain    2. Guerrier    3. Colosse    4. Mage
-
-        """)
-        
+    func createMembers() {
+        if let memberName = readLine() {
+            self.member1 = memberName
+        }
+        print("Choisir entre 1 et 3")
         if let speciality = readLine() {
             switch speciality {
             case "1":
