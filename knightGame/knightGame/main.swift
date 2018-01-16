@@ -7,6 +7,7 @@
 //
 
 // import Foundation optionel???
+var text = TextAndTranslation()
 
 let play = Game()
 play.gameMenu()

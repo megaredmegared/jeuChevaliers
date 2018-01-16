@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D142C932007649F001E938B /* TeamOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D142C922007649F001E938B /* TeamOne.swift */; };
+		4D142C932007649F001E938B /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D142C922007649F001E938B /* Team.swift */; };
 		4D48F6141FF3C2610093FB18 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48F6131FF3C2610093FB18 /* main.swift */; };
 		4D5090C52004B5AD00038671 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090C42004B5AD00038671 /* Game.swift */; };
-		4D5090C72004BD6A00038671 /* EntrieError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090C62004BD6A00038671 /* EntrieError.swift */; };
 		4D5090CB2004FDCB00038671 /* Dwarf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090CA2004FDCB00038671 /* Dwarf.swift */; };
 		4D5090CD2004FE3600038671 /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090CC2004FE3600038671 /* Warrior.swift */; };
 		4D5090CF2004FEF300038671 /* Colossus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090CE2004FEF300038671 /* Colossus.swift */; };
 		4D5090D12005015200038671 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090D02005015200038671 /* TeamMember.swift */; };
+		4D62D6DE2007851C007F9B5C /* Persona.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D62D6DD2007851C007F9B5C /* Persona.swift */; };
+		4D9E2081200DF1D900BE8CDD /* TextAndTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E2080200DF1D900BE8CDD /* TextAndTranslation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,15 +31,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4D142C922007649F001E938B /* TeamOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamOne.swift; sourceTree = "<group>"; };
+		4D142C922007649F001E938B /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		4D48F6101FF3C2610093FB18 /* knightGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = knightGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D48F6131FF3C2610093FB18 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4D5090C42004B5AD00038671 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		4D5090C62004BD6A00038671 /* EntrieError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrieError.swift; sourceTree = "<group>"; };
 		4D5090CA2004FDCB00038671 /* Dwarf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dwarf.swift; sourceTree = "<group>"; };
 		4D5090CC2004FE3600038671 /* Warrior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
 		4D5090CE2004FEF300038671 /* Colossus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colossus.swift; sourceTree = "<group>"; };
 		4D5090D02005015200038671 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
+		4D62D6DD2007851C007F9B5C /* Persona.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persona.swift; sourceTree = "<group>"; };
+		4D9E2080200DF1D900BE8CDD /* TextAndTranslation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAndTranslation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,14 +73,15 @@
 		4D48F6121FF3C2610093FB18 /* knightGame */ = {
 			isa = PBXGroup;
 			children = (
-				4D5090C62004BD6A00038671 /* EntrieError.swift */,
 				4D5090C42004B5AD00038671 /* Game.swift */,
 				4D48F6131FF3C2610093FB18 /* main.swift */,
 				4D5090CA2004FDCB00038671 /* Dwarf.swift */,
-				4D142C922007649F001E938B /* TeamOne.swift */,
+				4D9E2080200DF1D900BE8CDD /* TextAndTranslation.swift */,
+				4D142C922007649F001E938B /* Team.swift */,
 				4D5090CE2004FEF300038671 /* Colossus.swift */,
 				4D5090D02005015200038671 /* TeamMember.swift */,
 				4D5090CC2004FE3600038671 /* Warrior.swift */,
+				4D62D6DD2007851C007F9B5C /* Persona.swift */,
 			);
 			path = knightGame;
 			sourceTree = "<group>";
@@ -141,14 +144,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9E2081200DF1D900BE8CDD /* TextAndTranslation.swift in Sources */,
+				4D62D6DE2007851C007F9B5C /* Persona.swift in Sources */,
 				4D5090CD2004FE3600038671 /* Warrior.swift in Sources */,
 				4D5090D12005015200038671 /* TeamMember.swift in Sources */,
-				4D5090C72004BD6A00038671 /* EntrieError.swift in Sources */,
 				4D5090CF2004FEF300038671 /* Colossus.swift in Sources */,
 				4D5090CB2004FDCB00038671 /* Dwarf.swift in Sources */,
 				4D5090C52004B5AD00038671 /* Game.swift in Sources */,
 				4D48F6141FF3C2610093FB18 /* main.swift in Sources */,
-				4D142C932007649F001E938B /* TeamOne.swift in Sources */,
+				4D142C932007649F001E938B /* Team.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

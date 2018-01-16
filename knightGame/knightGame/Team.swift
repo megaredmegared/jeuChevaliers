@@ -1,11 +1,10 @@
 // class de création d'une équipe
 
-class TeamOne {
+class Team {
     var teamName = ""
     var teamLivesPoints = 10
-    var member1 = ""
-    //var member2: TeamMember
-    //var member3: TeamMember
+    var teamMembers = [teamMember1: "", teamMember2: "", teamMember3: ""]
+
     
     func createMembers() {
         if let memberName = readLine() {

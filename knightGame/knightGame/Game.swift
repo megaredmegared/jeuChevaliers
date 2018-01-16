@@ -9,13 +9,7 @@ class Game {
     // Affichage au démarrage du jeu
     
     func gameStart() {
-        print("""
-         
-        Choisissez parmis une des c'est trois options
-
-        1. Jouer        2. Afficher la régle du jeu        3. Quitter
-
-        """)
+        print(text.translation["startMenu"]!)
         if let choice = readLine() {
             switch choice {
                 
@@ -29,11 +23,7 @@ class Game {
                 runGame = false
                 
             default : // On affiche un message d'erreur pour tout saisie invalide
-                print("""
-
-                ***   Vous n'avez pas choisi le bon nombre   ***
-
-                """)
+                print(text.translation["selectionError"]!)
                 gameStart()
             }
         }
@@ -43,23 +33,13 @@ class Game {
     // Affichage de la régle du jeu
     
     func gameRules() {
-        print("""
-
-        Règle du jeu :
-        Ceci est un jeu de combat tour par tour où deux équipes de trois personnages vont devoir s'affronter.
-        La première équipe à tuer tous les personnages de l'équipe adverse, gagne la partie.
-
-        """)
+        print(text.translation["gameRules"]!)
     }
     
     // Création des équipes
     
     func createTeam() {
-        print("""
-        
-        Veuillez entrer un nom pour la première équipe
-
-        """)
+        print(text.translation["createTeamName"]!)
         
         if let teamName = readLine() {
             let teamOne = TeamOne(name: teamName) // création de la première équipe
@@ -68,11 +48,7 @@ class Game {
                 La première équipe s'appelle \(teamOne.teamName)
                 
                 """)
-            print("""
-
-            Choisissez le nom de votre premier personnage:
-
-            """)
+            print(text.translation["chooseFirstTeamMember"]!)
             teamOne.createMembers()
             print("le premier membre de l'équipe s'appelle \(teamOne.member1)")
         }
