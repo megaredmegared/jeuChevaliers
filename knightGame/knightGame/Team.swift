@@ -3,24 +3,34 @@
 class Team {
     var teamName = ""
     var teamLivesPoints = 10
-    var teamMembers = [teamMember1: "", teamMember2: "", teamMember3: ""]
-
+    var teamMember1 = ""
+    var teamMember2 = ""
+    var teamMember3 = ""
+    var teamMembers = ["": ""]
+    
+    
+    func createTeamMemberName(member: String) {
+        var member = ""
+        if var name = readLine() {
+            member = name
+        }
+    }
     
     func createMembers() {
-        if let memberName = readLine() {
-            self.member1 = memberName
-        }
-        print("Choisir entre 1 et 3")
+        print(text.translation["chooseMember"]!)
         if let speciality = readLine() {
             switch speciality {
             case "1":
-                print("pas de nain pour l'instant")//member1 = .Dwarf
+                createTeamMemberName(member: self.teamMember1)
+                print("Vous avez créé un nain qui s'appelle \(teamMember1)")
             case "2":
                 print("pas de guerrier pour l'instant")
+                createMembers()
             case "3":
                 print("pas de colosse pour l'instant")
             default:
-                print("Yo mauvaise entrée") //EntrieError.printError()
+                print(text.translation["selectionError"]!)
+                createMembers()
             }
         }
     }
