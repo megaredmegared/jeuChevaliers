@@ -4,8 +4,8 @@
 
 class Game {
     var runGame = true // Paramètre du jeu actif ou non
-    var teamOne: Team
-    var teamTwo: Team
+    var teamOne: Team = Team(name: "") // comment éviter ce code redondant ???? <---------------------***
+    var teamTwo: Team = Team(name: "")
     
     // Affichage du menu de démarrage du jeu
     
@@ -44,38 +44,52 @@ class Game {
     // Création des équipes
     
     func createTeam() {
+        
         // création de la première équipe
+        
         print(text.translation["createFirstTeamName"]!)
-       
-        if let teamName = readLine() {
-            
-            teamOne = Team(name: teamName)
-           
-            print("""
-                
-                La première équipe s'appelle \(teamOne.teamName)
-                
-                """)
-            
-            //teamOne.createMembers()
-            //print("le premier membre de l'équipe s'appelle \(teamOne.member1)")
-        }
-        
-        // création de la deuxième équipe
-        print(text.translation["createSecondTeamName"]!)
-        
-        if let teamName = readLine() {
-            teamTwo = Team(name: teamName)
-            if teamTwo.teamName == teamOne.teamName {
-                // redo team ask
-            } else {
-            print("""
-                
-                La deuxième équipe s'appelle \(teamTwo.teamName)
-                
-                """)
+        func createTeamOne() {
+            if let teamName = readLine() {
+                teamOne = Team(name: teamName)
+                if teamName == "" { // vérification que le nom n'existe pas déjà ou qu'il n'y a rien d'entré
+                    print(text.translation["checkName"]!)
+                    createTeamOne()
+                } else {
+                    usedNames.append(teamOne.teamName)
+                    teamOne.createMembers()
+                }
             }
         }
+        createTeamOne()
+        
+        // création de la deuxième équipe
+        
+        print(text.translation["createSecondTeamName"]!)
+        func createTeamTwo() {
+            if let teamName = readLine() {
+                teamTwo = Team(name: teamName)
+                if usedNames.contains(teamName) || teamName == "" { // vérification que le nom n'existe pas déjà ou qu'il n'y a rien d'entré
+                    print(text.translation["checkName"]!)
+                    createTeamTwo()
+                } else {
+                    usedNames.append(teamOne.teamName)
+                    teamTwo.createMembers()
+                }
+            }
+        }
+        createTeamTwo()
+        
+        print("""
+            
+            \(teamOne.teamMember1.memberName), \(teamOne.teamMember2.memberName) et \(teamOne.teamMember3.memberName)
+            de l'équipe \(teamOne.teamName)
+            vont affronter
+            \(teamTwo.teamMember1.memberName), \(teamTwo.teamMember2.memberName) et \(teamTwo.teamMember3.memberName)
+            de l'équipe \(teamTwo.teamName)
+            
+            Que le meilleur gagne !!!
+            
+            """)
     }
     
     // Boucle de lancement du jeu

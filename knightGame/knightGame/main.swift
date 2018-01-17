@@ -8,6 +8,7 @@
 
 // import Foundation optionel???
 var text = TextAndTranslation()
+var usedNames = [""]
 
 let play = Game()
 play.gameMenu()

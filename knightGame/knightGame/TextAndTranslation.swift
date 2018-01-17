@@ -32,13 +32,13 @@ class TextAndTranslation {
         
         "createFirstTeamName": """
         
-        Veuillez entrer un nom pour la première équipe
+        ***   Veuillez entrer un nom pour la première équipe   ***
         
         """,
         
         "createSecondTeamName": """
         
-        Veuillez entrer un nom pour la deuxième équipe
+        ***   Veuillez entrer un nom pour la deuxième équipe   ***
         
         """,
         
@@ -74,6 +74,12 @@ class TextAndTranslation {
         
         1. Nain        2. Guerrier        3. Colosse        4. Mage
         
+        """,
+        
+        "checkName": """
+        
+        Ce nom est déjà pris ou vous n'avez pas rentré de nom, veuillez recommencer !
+        
         """]
     
     // MARK: Traduction en Anglais
@@ -104,13 +110,13 @@ class TextAndTranslation {
         
         "createFirstTeamName": """
         
-        Please enter a name for the first team
+        ***   Please enter a name for the first team   ***
         
         """,
         
         "createSecondTeamName": """
         
-        Please enter a name for the second team
+        ***   Please enter a name for the second team   ***
         
         """,
         
@@ -145,6 +151,12 @@ class TextAndTranslation {
         Choose the specialty of the character!
         
         1. Dwarf        2. Warrior        3. Colossus        4. Mage
+        
+        """,
+        
+        "checkName": """
+        
+        This name is already taken or you have not writen anything, please start again !
         
         """]
     
