@@ -55,7 +55,7 @@ class Game {
                     print(text.translation["checkName"]!)
                     createTeamOne()
                 } else {
-                    usedNames.append(teamOne.teamName)
+                    text.usedNames.append(teamOne.teamName)
                     teamOne.createMembers()
                 }
             }
@@ -68,11 +68,11 @@ class Game {
         func createTeamTwo() {
             if let teamName = readLine() {
                 teamTwo = Team(name: teamName)
-                if usedNames.contains(teamName) || teamName == "" { // vérification que le nom n'existe pas déjà ou qu'il n'y a rien d'entré
+                if text.usedNames.contains(teamName) || teamName == "" { // vérification que le nom n'existe pas déjà ou qu'il n'y a rien d'entré
                     print(text.translation["checkName"]!)
                     createTeamTwo()
                 } else {
-                    usedNames.append(teamOne.teamName)
+                    text.usedNames.append(teamOne.teamName)
                     teamTwo.createMembers()
                 }
             }

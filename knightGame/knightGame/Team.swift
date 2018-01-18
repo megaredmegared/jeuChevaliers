@@ -13,42 +13,42 @@ class Team {
         func createFirstMember() {
             print(text.translation["chooseFirstTeamMember"]!)
             if let teamMemberName = readLine() {
-                if usedNames.contains(teamMemberName) || teamMemberName == "" {
+                if text.usedNames.contains(teamMemberName) || teamMemberName == "" {
                     
                     print(text.translation["checkName"]!)
                     
                     createFirstMember()
                 } else {
                     teamMember1 = TeamMember(name: teamMemberName)
-                    usedNames.append(teamMember1.memberName)
+                    text.usedNames.append(teamMember1.memberName)
                 }
             }
         }
         func createSecondMember() {
             print(text.translation["chooseSecondTeamMember"]!)
             if let teamMemberName = readLine() {
-                if usedNames.contains(teamMemberName) || teamMemberName == "" {
+                if text.usedNames.contains(teamMemberName) || teamMemberName == "" {
                     
                     print(text.translation["checkName"]!)
                     
                     createSecondMember()
                 } else {
                     teamMember2 = TeamMember(name: teamMemberName)
-                    usedNames.append(teamMember2.memberName)
+                    text.usedNames.append(teamMember2.memberName)
                 }
             }
         }
         func createThirdMember() {
             print(text.translation["chooseThirdTeamMember"]!)
             if let teamMemberName = readLine() {
-                if usedNames.contains(teamMemberName) || teamMemberName == "" {
+                if text.usedNames.contains(teamMemberName) || teamMemberName == "" {
                     
                     print(text.translation["checkName"]!)
                     
                     createThirdMember()
                 } else {
                     teamMember3 = TeamMember(name: teamMemberName)
-                    usedNames.append(teamMember3.memberName)
+                    text.usedNames.append(teamMember3.memberName)
                 }
             }
         }

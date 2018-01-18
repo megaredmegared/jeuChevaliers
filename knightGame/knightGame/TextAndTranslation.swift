@@ -4,6 +4,8 @@ class TextAndTranslation {
     
     let language = "fr"
     
+    var usedNames = [""]
+    
     // MARK: Traduction en français
     
     let textFr = [
@@ -78,7 +80,7 @@ class TextAndTranslation {
         
         "checkName": """
         
-        Ce nom est déjà pris ou vous n'avez pas rentré de nom, veuillez recommencer !
+        ***   Ce nom est déjà pris ou vous n'avez pas rentré de nom, veuillez recommencer !   ***
         
         """]
     
@@ -156,7 +158,7 @@ class TextAndTranslation {
         
         "checkName": """
         
-        This name is already taken or you have not writen anything, please start again !
+        ***   This name is already taken or you have not writen anything, please start again !   ***
         
         """]
     
