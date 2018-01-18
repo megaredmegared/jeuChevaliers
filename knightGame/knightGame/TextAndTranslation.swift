@@ -4,7 +4,7 @@ class TextAndTranslation {
     
     let language = "fr"
     
-    var usedNames = [""]
+    var usedNames = [""] // Stock les noms utilisés pour les équipes et les personnages
     
     // MARK: Traduction en français
     
@@ -172,6 +172,7 @@ class TextAndTranslation {
             translation = textEn
         }
     }
+    
     // Affichage du menu du choix de la langue
     
     func languageChoice() { // problème mettre instance ou class comme ref  <-----------------------***

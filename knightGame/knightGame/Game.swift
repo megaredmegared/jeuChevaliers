@@ -81,11 +81,11 @@ class Game {
         
         print("""
             
-            \(teamOne.teamMember1.memberName), \(teamOne.teamMember2.memberName) et \(teamOne.teamMember3.memberName)
-            de l'équipe \(teamOne.teamName)
+            \(teamOne.teamMember1.memberName), \(teamOne.teamMember2.memberName) et \(teamOne.teamMember3.memberName) de l'équipe \(teamOne.teamName)
+            
             vont affronter
-            \(teamTwo.teamMember1.memberName), \(teamTwo.teamMember2.memberName) et \(teamTwo.teamMember3.memberName)
-            de l'équipe \(teamTwo.teamName)
+            
+            \(teamTwo.teamMember1.memberName), \(teamTwo.teamMember2.memberName) et \(teamTwo.teamMember3.memberName) de l'équipe \(teamTwo.teamName)
             
             Que le meilleur gagne !!!
             
