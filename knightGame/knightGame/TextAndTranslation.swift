@@ -4,9 +4,9 @@ class TextAndTranslation {
     
     let language = "fr"
     
-    var usedNames = [""] // Stock les noms utilisés pour les équipes et les personnages
+    var usedNames = [""] // Collected names used for teams and charachters
     
-    // MARK: Traduction en français
+    // MARK: French translation
     
     let textFr = [
         
@@ -93,7 +93,7 @@ class TextAndTranslation {
         "sword": "épée"
         ]
     
-    // MARK: Traduction en Anglais
+    // MARK: English translation
     
     let textEn = [
         
@@ -181,7 +181,7 @@ class TextAndTranslation {
         ]
     
     
-    // MARK: Choix de la langue
+    // MARK: Choice of the language
     
     func enable(language: String) {
         if language == "fr" {
@@ -191,9 +191,9 @@ class TextAndTranslation {
         }
     }
     
-    // Affichage du menu du choix de la langue
+    // Display choice menu of the languages
     
-    func languageChoice() { // problème mettre instance ou class comme ref  <-----------------------***
+    func languageChoice() {
         print(text.translation["chooseLanguage"]!)
         if let choice = readLine() {
             switch choice {
@@ -211,7 +211,7 @@ class TextAndTranslation {
         }
     }
     
-    // Initialisation en Français par défaut
+    // Initialization by default in French
     
     init() {
         translation = textFr

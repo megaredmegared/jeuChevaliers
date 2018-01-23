@@ -1,13 +1,13 @@
-// **********************
-// *   Logique du jeu   *
-// **********************
+// *****************
+// *   Game Logic  *
+// *****************
 
 class Game {
-    var runGame = true // Paramètre du jeu actif ou non
-    var teamOne: Team = Team(name: "") // comment éviter ce code redondant ???? <---------------------***
+    var runGame = true // Game parameter to trigger the game
+    var teamOne: Team = Team(name: "")
     var teamTwo: Team = Team(name: "")
     
-    // Affichage du menu de démarrage du jeu
+    // Display starting menu
     
     func gameStart() {
         print(text.translation["startMenu"]!)
@@ -15,19 +15,19 @@ class Game {
             
             switch choice {
                 
-            case "1" : // On commence à jouer
+            case "1" : // Start to play
                 createTeam()
                 
-            case "2" : // On affiche la règle du jeu
+            case "2" : // Display the game rules
                 gameRules()
                 
-            case "3" : // On change la langue du jeu
+            case "3" : // Change the default language
                 text.languageChoice()
                 
-            case "4" : // On quitte le jeu
+            case "4" : // Exit the game
                 runGame = false
                 
-            default : // On affiche un message d'erreur pour toute saisie invalide
+            default : // Display error message for bad entry
                 print(text.translation["selectionError"]!)
                 gameStart()
             }
@@ -35,23 +35,23 @@ class Game {
     }
     
     
-    // Affichage de la régle du jeu
+    // Display game rules
     
     func gameRules() {
         print(text.translation["gameRules"]!)
     }
     
-    // Création des équipes
+    // Creation of the teams
     
     func createTeam() {
         
-        // création de la première équipe
+        // creation of the first team
         
         print(text.translation["createFirstTeamName"]!)
         func createTeamOne() {
             if let teamName = readLine() {
                 teamOne = Team(name: teamName)
-                if teamName == "" { // vérification que le nom n'existe pas déjà ou qu'il n'y a rien d'entré
+                if teamName == "" { // Check if the name is not already used or if there is no entry
                     print(text.translation["checkName"]!)
                     createTeamOne()
                 } else {
@@ -62,13 +62,13 @@ class Game {
         }
         createTeamOne()
         
-        // création de la deuxième équipe
+        // creation of the second team
         
         print(text.translation["createSecondTeamName"]!)
         func createTeamTwo() {
             if let teamName = readLine() {
                 teamTwo = Team(name: teamName)
-                if text.usedNames.contains(teamName) || teamName == "" { // vérification que le nom n'existe pas déjà ou qu'il n'y a rien d'entré
+                if text.usedNames.contains(teamName) || teamName == "" { // Check if the name is not already used or if there is no entry
                     print(text.translation["checkName"]!)
                     createTeamTwo()
                 } else {
@@ -98,9 +98,27 @@ class Game {
             Que le meilleur gagne !!!
             
             """)
+        
+        // Start of th battle
+        
+        func startFight() {
+            while (teamOne.teamMembers[0].life + teamOne.teamMembers[1].life + teamOne.teamMembers[2].life > 0) && (teamTwo.teamMembers[0].life + teamTwo.teamMembers[1].life + teamTwo.teamMembers[2].life > 0) {
+                
+            }
+            print("""
+            
+            *************************** * * *  GAME OVER   * * * ***************************
+
+            """)
+            if (teamOne.teamMembers[0].life + teamOne.teamMembers[1].life + teamOne.teamMembers[2].life > 0) {
+                print("l'équipe 1 a gagnée")
+            } else {
+                print("l'équipe 2 a gagnée")
+            }
+        }
     }
     
-    // Boucle de lancement du jeu
+    // Starting loop of the game
     
     func gameMenu() {
         while runGame {

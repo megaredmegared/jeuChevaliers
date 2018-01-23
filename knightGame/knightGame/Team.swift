@@ -1,4 +1,4 @@
-// class de création d'une équipe
+// class creation of a team
 
 class Team {
     var teamName = ""
