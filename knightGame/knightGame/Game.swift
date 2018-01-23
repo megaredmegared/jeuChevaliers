@@ -81,12 +81,20 @@ class Game {
         
         print("""
             
-            \(teamOne.teamMember1.memberName), \(teamOne.teamMember2.memberName) et \(teamOne.teamMember3.memberName) de l'équipe \(teamOne.teamName)
+            L'équipe \(teamOne.teamName) :
             
-            vont affronter
+            \(teamOne.teamMembers[0].memberName) le \(teamOne.teamMembers[0].memberSpeciality): vie = \(teamOne.teamMembers[0].life) attaque =  \(teamOne.teamMembers[0].attack)
+            \(teamOne.teamMembers[1].memberName) le \(teamOne.teamMembers[1].memberSpeciality): vie = \(teamOne.teamMembers[1].life) attaque =  \(teamOne.teamMembers[1].attack)
+            \(teamOne.teamMembers[2].memberName) le \(teamOne.teamMembers[2].memberSpeciality): vie = \(teamOne.teamMembers[2].life) attaque =  \(teamOne.teamMembers[2].attack)
+
+            va affronter
             
-            \(teamTwo.teamMember1.memberName), \(teamTwo.teamMember2.memberName) et \(teamTwo.teamMember3.memberName) de l'équipe \(teamTwo.teamName)
+            L'équipe \(teamTwo.teamName) :
             
+            \(teamTwo.teamMembers[0].memberName) le \(teamTwo.teamMembers[0].memberSpeciality): vie = \(teamTwo.teamMembers[0].life) attaque =  \(teamTwo.teamMembers[0].attack)
+            \(teamTwo.teamMembers[1].memberName) le \(teamTwo.teamMembers[1].memberSpeciality): vie = \(teamTwo.teamMembers[1].life) attaque =  \(teamTwo.teamMembers[1].attack)
+            \(teamTwo.teamMembers[2].memberName) le \(teamTwo.teamMembers[2].memberSpeciality): vie = \(teamTwo.teamMembers[2].life) attaque =  \(teamTwo.teamMembers[2].attack)
+
             Que le meilleur gagne !!!
             
             """)

@@ -82,7 +82,16 @@ class TextAndTranslation {
         
         ***   Ce nom est déjà pris ou vous n'avez pas rentré de nom, veuillez recommencer !   ***
         
-        """]
+        """,
+        "Dwarf": "Nain",
+        "Warrior": "Guerrier",
+        "Mage": "Mage",
+        "Colossus": "Colosse",
+        "axe": "hache",
+        "cudgel": "goudin",
+        "magic wand": "baguette magique",
+        "sword": "épée"
+        ]
     
     // MARK: Traduction en Anglais
     
@@ -160,7 +169,16 @@ class TextAndTranslation {
         
         ***   This name is already taken or you have not writen anything, please start again !   ***
         
-        """]
+        """,
+        "Dwarf": "Dwarf",
+        "Warrior": "Warrior",
+        "Mage": "Mage",
+        "Colossus": "Colossus",
+        "axe": "axe",
+        "cudgel": "cudgel",
+        "magic wand": "magic wand",
+        "sword": "sword"
+        ]
     
     
     // MARK: Choix de la langue

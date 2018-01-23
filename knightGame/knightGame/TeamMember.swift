@@ -1,28 +1,39 @@
 class TeamMember {
     
     var memberName = ""
-    
-    /*var memberSpeciality = GameCharacters()  // <--------- quel type pour ça ??????????
+    var life = 0
+    var attack = 0
+    var memberSpeciality = ""
+    let weapon = Weapons()
     
     func chooseSpeciality() {
         print(text.translation["chooseMember"]!)
         if let speciality = readLine() {
             switch speciality {
             case "1":
-                memberSpeciality = Dwarf()
+                memberSpeciality = text.translation["Dwarf"]!
+                attack += weapon.ofTheCharacterIs["axe"]!
+                life += 80
             case "2":
-                memberSpeciality = Warrior()
+                memberSpeciality = text.translation["Warrior"]!
+                attack += weapon.ofTheCharacterIs["sword"]!
+                life += 100
             case "3":
-                memberSpeciality = Colossus()
+                memberSpeciality = text.translation["Colossus"]!
+                attack += weapon.ofTheCharacterIs["cudgel"]!
+                life += 120
             case "4":
-                memberSpeciality = Mage()
+                memberSpeciality = text.translation["Mage"]!
+                attack += weapon.ofTheCharacterIs["magic wand"]!
+                life += 150
+                
                 
             default:
                 print(text.translation["selectionError"]!)
-                createMembers()
+                chooseSpeciality()
             }
         }
-    }*/
+    }
     
     init(name: String) {
         memberName = name

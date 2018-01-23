@@ -2,13 +2,39 @@
 
 class Team {
     var teamName = ""
-    var teamLivesPoints = 10
-    var teamMember1 = TeamMember(name: "") // comment éviter ce code redondant ???? <---------------------***
-    var teamMember2 = TeamMember(name: "")
-    var teamMember3 = TeamMember(name: "")
     
+    var teamMembers = [TeamMember(name: ""), TeamMember(name: ""), TeamMember(name: "")]
     
-    func createMembers() {
+    /*func createMembers(_: Int) {
+        for i in 0...2 {
+            var textPrompt = ""
+            switch i {
+            case 0:
+                textPrompt = "chooseFirstTeamMember"
+            case 1:
+                textPrompt = "chooseSecondTeamMember"
+            case 2:
+                textPrompt = "chooseThirdTeamMember"
+            default:
+                textPrompt = "chooseThirdTeamMember" // à corriger aussi
+            }
+            
+            print(text.translation[textPrompt]!)
+            
+            if let teamMemberName = readLine() {
+                if text.usedNames.contains(teamMemberName) || teamMemberName == "" {
+                    
+                    print(text.translation["checkName"]!)
+                    
+                    createMembers(i)
+                } else {
+                    teamMembers[i] = TeamMember(name: teamMemberName)
+                    text.usedNames.append(teamMembers[i].memberName)
+                }
+                
+            }
+        }*/
+        
         
         func createFirstMember() {
             print(text.translation["chooseFirstTeamMember"]!)
@@ -19,11 +45,13 @@ class Team {
                     
                     createFirstMember()
                 } else {
-                    teamMember1 = TeamMember(name: teamMemberName)
-                    text.usedNames.append(teamMember1.memberName)
+                    teamMembers[0] = TeamMember(name: teamMemberName)
+                    text.usedNames.append(teamMembers[0].memberName)
                 }
             }
+            teamMembers[0].chooseSpeciality()
         }
+        
         func createSecondMember() {
             print(text.translation["chooseSecondTeamMember"]!)
             if let teamMemberName = readLine() {
@@ -33,11 +61,13 @@ class Team {
                     
                     createSecondMember()
                 } else {
-                    teamMember2 = TeamMember(name: teamMemberName)
-                    text.usedNames.append(teamMember2.memberName)
+                    teamMembers[1] = TeamMember(name: teamMemberName)
+                    text.usedNames.append(teamMembers[1].memberName)
                 }
             }
+            teamMembers[1].chooseSpeciality()
         }
+        
         func createThirdMember() {
             print(text.translation["chooseThirdTeamMember"]!)
             if let teamMemberName = readLine() {
@@ -47,20 +77,25 @@ class Team {
                     
                     createThirdMember()
                 } else {
-                    teamMember3 = TeamMember(name: teamMemberName)
-                    text.usedNames.append(teamMember3.memberName)
+                    teamMembers[2] = TeamMember(name: teamMemberName)
+                    text.usedNames.append(teamMembers[2].memberName)
                 }
             }
+            teamMembers[2].chooseSpeciality()
         }
-        createFirstMember()
-        createSecondMember()
-        createThirdMember()
         
-    }
-    
-    init(name: String) {
-        teamName = name
-    }
-    
+        func createMembers() {
+            createFirstMember()
+            createSecondMember()
+            createThirdMember()
+        }
+        
+        
+        
+        
+        init(name: String) {
+            teamName = name
+        }
+        
 }
 
