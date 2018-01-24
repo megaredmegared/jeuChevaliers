@@ -90,8 +90,15 @@ class TextAndTranslation {
         "axe": "hache",
         "cudgel": "goudin",
         "magic wand": "baguette magique",
-        "sword": "épée"
-        ]
+        "sword": "épée",
+        "excalibur": "excalibur",
+        "healing flask": "fiole de vie",
+        "golden magic wand": "baguette magique dorée",
+        "golden axe": "hache en or",
+        "dead spell": "sortilège mortel",
+        "poison flask": "fiole de poison",
+        "magic egg": "oeuf sacré",
+        "gameOver": "L'équipe "] // gameover not fully completed
     
     // MARK: English translation
     
@@ -177,7 +184,14 @@ class TextAndTranslation {
         "axe": "axe",
         "cudgel": "cudgel",
         "magic wand": "magic wand",
-        "sword": "sword"
+        "sword": "sword",
+        "excalibur": "excalibur",
+        "healing flask": "healing flask",
+        "golden magic wand": "golden magic wand",
+        "golden axe": "golden axe",
+        "dead spell": "dead spell",
+        "poison flask": "poison flask",
+        "magic egg": "magic egg",
         ]
     
     
