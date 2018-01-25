@@ -16,7 +16,7 @@ class Team {
         case 2:
             textPrompt = "chooseThirdTeamMember"
         default:
-            textPrompt = "chooseThirdTeamMember" // check to write something usefull here
+            break // check to write something usefull here
         }
         
         print(text.translation[textPrompt]!)
@@ -42,7 +42,7 @@ class Team {
         createMember(member: 2)
         teamMembers[2].chooseSpeciality()
     }
- 
+    
     init(name: String) {
         teamName = name
     }
