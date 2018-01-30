@@ -8,7 +8,7 @@ class TeamMember {
     let weapon = Weapons()
     
     func chooseSpeciality() {
-        print(text.translation["chooseMember"]!)
+        print(text.translation["chooseMemberSpeciality"]!)
         if let speciality = readLine() {
             switch speciality {
             case "1":

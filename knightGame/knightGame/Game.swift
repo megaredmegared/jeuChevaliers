@@ -4,12 +4,13 @@
 
 class Game {
     var runGame = true // Game parameter to trigger the game
-    var teamOne: Team = Team(name: "")
-    var teamTwo: Team = Team(name: "")
-    var fighterOne = TeamMember(name: "")
-    var fighterTwo = TeamMember(name: "")
+    var teams = [Team(name: ""), Team(name: "")]
+    var fighters = [TeamMember(name: ""), TeamMember(name: "")]
     
-    // Display starting menu
+    
+    // *****************************
+    // MARK: Display starting menu *
+    // *****************************
     
     func gameStart() {
         print(text.translation["startMenu"]!)
@@ -18,7 +19,7 @@ class Game {
             switch choice {
                 
             case "1" : // Start to play
-                createTeam()
+                createTeams()
                 
             case "2" : // Display the game rules
                 gameRules()
@@ -37,196 +38,157 @@ class Game {
     }
     
     
-    // Display game rules
+    // **************************
+    // MARK: Display game rules *
+    // **************************
     
     func gameRules() {
         print(text.translation["gameRules"]!)
     }
     
-    // Creation of the teams
     
-    func createTeam() {
+    // *****************************
+    // MARK: Creation of the teams *
+    // *****************************
+    
+    func createTeam(chooseTeam: Int) {
+        var textPrompt = ""
+        switch chooseTeam {
+        case 0:
+            textPrompt = "createFirstTeamName"
+        case 1:
+            textPrompt = "createSecondTeamName"
+        default:
+            break
+        }
         
-        // creation of the first team
+        print(text.translation[textPrompt]!)
         
-        print(text.translation["createFirstTeamName"]!)
-        func createTeamOne() {
-            if let teamName = readLine() {
-                teamOne = Team(name: teamName)
-                if teamName == "" { // Check if the name is not already used or if there is no entry
-                    print(text.translation["checkName"]!)
-                    createTeamOne()
-                } else {
-                    text.usedNames.append(teamOne.teamName)
-                    teamOne.createMembers()
-                }
+        if let teamName = readLine() {
+            teams[chooseTeam] = Team(name: teamName)
+            if teamName == "" { // Check if the name is not already used or if there is no entry
+                print(text.translation["checkName"]!)
+                createTeam(chooseTeam: chooseTeam)
+            } else {
+                text.usedNames.append(teams[chooseTeam].teamName)
+                teams[chooseTeam].createMembers()
             }
         }
-        createTeamOne()
-        
-        // creation of the second team
-        
-        print(text.translation["createSecondTeamName"]!)
-        func createTeamTwo() {
-            if let teamName = readLine() {
-                teamTwo = Team(name: teamName)
-                if text.usedNames.contains(teamName) || teamName == "" { // Check if the name is not already used or if there is no entry
-                    print(text.translation["checkName"]!)
-                    createTeamTwo()
-                } else {
-                    text.usedNames.append(teamOne.teamName)
-                    teamTwo.createMembers()
-                }
-            }
-        }
-        createTeamTwo()
-        
-        print("""
-            
-            \(text.translation["The team"]!) \(teamOne.teamName) :
-            
-            \(teamOne.teamMembers[0].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[0].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[0].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[0].attack)
-            \(teamOne.teamMembers[1].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[1].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[1].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[1].attack)
-            \(teamOne.teamMembers[2].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[2].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[2].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[2].attack)
-            
-            vs
-            
-            \(text.translation["The team"]!) \(teamTwo.teamName) :
-            
-            \(teamTwo.teamMembers[0].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[0].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[0].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[0].attack)
-            \(teamTwo.teamMembers[1].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[1].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[1].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[1].attack)
-            \(teamTwo.teamMembers[2].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[2].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[2].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[2].attack)
-            
-            \(text.translation["letTheBestWin"]!)
-            
-            """)
-        startFight()
     }
-    // Start of the battle
     
-    func chooseTeamOneFighter() {
+    func createTeams() {
+        createTeam(chooseTeam: 0)
+        createTeam(chooseTeam: 1)
+        fight()
+    }
+    
+    
+    // ***************************
+    // MARK: Start of the battle *
+    // ***************************
+    
+    // Display if a player is dead
+    
+    func displayDeadMember(team: Int, member: Int) -> String {
+        if teams[team].teamMembers[member].life <= 0 {
+            return "☠️"
+        } else {
+            return "\(teams[team].teamMembers[member].memberName)"
+        }
+    }
+    
+    func displayChooseFighter(team: Int) {
+        var opponentTeam: Int // can i just calculate it ?
+        
+        if team == 0 {
+            opponentTeam = 1
+        } else {
+            opponentTeam = 0
+        }
         print("""
             
-            \(text.translation["chooseMember"]!):
-            
-            1. \(teamOne.teamMembers[0].memberName) 2. \(teamOne.teamMembers[1].memberName) 3. \(teamOne.teamMembers[2].memberName)
+            ***************************************   \(text.translation["The team"]!) \(teams[team].teamName) \(text.translation["attack"]!) !!!   ***************************************
             
             """)
         
-        if let chooseMemberToFight = readLine() {
-            switch chooseMemberToFight {
+        print("""
+            
+            * \(text.translation["opponentTeam"]!) \(teams[opponentTeam].teamName) :
+            *
+            * \(teams[opponentTeam].teamMembers[0].memberName)
+            * \(teams[opponentTeam].teamMembers[0].memberSpeciality): \(text.translation["life"]!) = \(teams[1].teamMembers[0].life) \(text.translation["attack"]!) =  \(teams[opponentTeam].teamMembers[0].attack)
+            *
+            * \(teams[opponentTeam].teamMembers[1].memberName)
+            * \(teams[opponentTeam].teamMembers[1].memberSpeciality): \(text.translation["life"]!) = \(teams[opponentTeam].teamMembers[1].life) \(text.translation["attack"]!) =  \(teams[opponentTeam].teamMembers[1].attack)
+            *
+            * \(teams[opponentTeam].teamMembers[2].memberName)
+            * \(teams[opponentTeam].teamMembers[2].memberSpeciality): \(text.translation["life"]!) = \(teams[opponentTeam].teamMembers[2].life) \(text.translation["attack"]!) = \(teams[opponentTeam].teamMembers[2].attack)
+            *
+            *
+            ************************************************************************************************
+            
+            """)
+        
+    }
+    
+    func chooseFighter(team: Int) {
+        
+        print("""
+            
+            1. \(displayDeadMember(team: team, member: 0)) 2. \(displayDeadMember(team: team, member: 1)) 3. \(displayDeadMember(team: team, member: 2))
+            
+            """)
+        
+        if let chooseFighterMember = readLine() {
+            switch chooseFighterMember {
             case "1":
-                if teamOne.teamMembers[0].life > 0 {
-                    fighterOne = teamOne.teamMembers[0]
+                if teams[team].teamMembers[0].life > 0 {
+                    fighters[team] = teams[team].teamMembers[0]
                 } else {
                     print("\(text.translation["selectDeadMember"]!)")
-                    chooseTeamOneFighter()
+                    chooseFighter(team: team)
                 }
             case "2":
-                if teamOne.teamMembers[1].life > 0 {
-                    fighterOne = teamOne.teamMembers[1]
+                if teams[team].teamMembers[1].life > 0 {
+                    fighters[team] = teams[team].teamMembers[1]
                 } else {
                     print("\(text.translation["selectDeadMember"]!)")
-                    chooseTeamOneFighter()
+                    chooseFighter(team: team)
                 }
             case "3":
-                if teamOne.teamMembers[2].life > 0 {
-                    fighterOne = teamOne.teamMembers[2]
+                if teams[team].teamMembers[2].life > 0 {
+                    fighters[team] = teams[team].teamMembers[2]
                 } else {
                     print("\(text.translation["selectDeadMember"]!)")
-                    chooseTeamOneFighter()
+                    chooseFighter(team: team)
                 }
             default:
                 print(text.translation["selectionError"]!)
-                chooseTeamOneFighter()
+                chooseFighter(team: team)
             }
         }
     }
-    func chooseTeamTwoFighter() {
-        print("""
+
+    func fight() {
+        while ((teams[0].teamMembers[0].life > 0) || (teams[0].teamMembers[1].life > 0) || (teams[0].teamMembers[2].life > 0)) && ((teams[1].teamMembers[0].life > 0) || (teams[1].teamMembers[1].life > 0) || (teams[1].teamMembers[2].life > 0)) {
             
-            \(text.translation["chooseMember"]!):
+            displayChooseFighter(team: 0)
+            print(text.translation["chooseAttacker"]!)
+            chooseFighter(team: 0)
+            print(text.translation["chooseOpponent"]!)
+            chooseFighter(team: 1)
+            fighters[1].life -= fighters[0].attack
             
-            1. \(teamTwo.teamMembers[0].memberName) 2. \(teamTwo.teamMembers[1].memberName) 3. \(teamTwo.teamMembers[2].memberName)
-            
-            """)
-        
-        if let chooseMemberToFight = readLine() {
-            switch chooseMemberToFight {
-            case "1":
-                if teamTwo.teamMembers[0].life > 0 {
-                    fighterTwo = teamTwo.teamMembers[0]
-                } else {
-                    print("\(text.translation["selectDeadMember"]!)")
-                    chooseTeamTwoFighter()
-                }
-            case "2":
-                if teamTwo.teamMembers[1].life > 0 {
-                    fighterTwo = teamTwo.teamMembers[1]
-                } else {
-                    print("\(text.translation["selectDeadMember"]!)")
-                    chooseTeamTwoFighter()
-                }
-            case "3":
-                if teamTwo.teamMembers[2].life > 0 {
-                    fighterTwo = teamTwo.teamMembers[2]
-                } else {
-                    print("\(text.translation["selectDeadMember"]!)")
-                    chooseTeamTwoFighter()
-                }
-            default:
-                print(text.translation["selectionError"]!)
-                chooseTeamTwoFighter()
-            }
-        }
-    }
-    
-    
-    func startFight() {
-        while (teamOne.teamMembers[0].life + teamOne.teamMembers[1].life + teamOne.teamMembers[2].life > 0) && (teamTwo.teamMembers[0].life + teamTwo.teamMembers[1].life + teamTwo.teamMembers[2].life > 0) {
-            
-            print("""
-                
-                \(teamOne.teamName) :
-                
-                \(teamOne.teamMembers[0].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[0].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[0].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[0].attack)
-                \(teamOne.teamMembers[1].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[1].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[1].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[1].attack)
-                \(teamOne.teamMembers[2].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[2].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[2].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[2].attack)
-                
-                \(teamTwo.teamName) :
-                
-                \(teamTwo.teamMembers[0].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[0].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[0].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[0].attack)
-                \(teamTwo.teamMembers[1].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[1].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[1].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[1].attack)
-                \(teamTwo.teamMembers[2].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[2].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[2].life) \(text.translation["attack"]!) =
-                \(teamTwo.teamMembers[2].attack)
-                
-                """)
-            print("\(text.translation["The team"]!) \(teamOne.teamName) \(text.translation["attack"]!) !!!")
-            chooseTeamOneFighter()
-            chooseTeamTwoFighter()
-            fighterTwo.life -= fighterOne.attack
-            if (teamTwo.teamMembers[0].life + teamTwo.teamMembers[1].life + teamTwo.teamMembers[2].life <= 0) {
+            if (teams[1].teamMembers[0].life <= 0 && teams[1].teamMembers[1].life <= 0 && teams[1].teamMembers[2].life <= 0) {
                 break
             }
-            print("""
-                
-                \(teamOne.teamName) :
-                
-                \(teamOne.teamMembers[0].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[0].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[0].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[0].attack)
-                \(teamOne.teamMembers[1].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[1].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[1].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[1].attack)
-                \(teamOne.teamMembers[2].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[2].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[2].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[2].attack)
-                
-                \(teamTwo.teamName) :
-                
-                \(teamTwo.teamMembers[0].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[0].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[0].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[0].attack)
-                \(teamTwo.teamMembers[1].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[1].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[1].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[1].attack)
-                \(teamTwo.teamMembers[2].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[2].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[2].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[2].attack)
-                
-                """)
-            print("\(text.translation["The team"]!) \(teamTwo.teamName) \(text.translation["attack"]!) !!!")
-            chooseTeamTwoFighter()
-            chooseTeamOneFighter()
-            fighterOne.life -= fighterTwo.attack
+
+            displayChooseFighter(team: 1)
+            print(text.translation["chooseAttacker"]!)
+            chooseFighter(team: 1)
+            print(text.translation["chooseOpponent"]!)
+            chooseFighter(team: 0)
+            fighters[0].life -= fighters[1].attack
         }
         
         
@@ -235,14 +197,17 @@ class Game {
             *************************** * * *  GAME OVER   * * * ***************************
 
             """)
-        if (teamOne.teamMembers[0].life + teamOne.teamMembers[1].life + teamOne.teamMembers[2].life > 0) {
-            print("Game over")//  print(text.translation["gameOver"]!, \(teamOne.teamName))
+        if (teams[0].teamMembers[0].life + teams[0].teamMembers[1].life + teams[0].teamMembers[2].life > 0) {
+            print("Game over")//  print(text.translation["gameOver"]!, \(teams[0].teamName))
         } else {
             print("l'équipe 2 a gagnée")
         }
     }
     
-    // Starting game loop
+    
+    // **************************
+    // MARK: Starting game loop *
+    // **************************
     
     func gameMenu() {
         while runGame {

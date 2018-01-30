@@ -70,7 +70,7 @@ class TextAndTranslation {
         
         """,
         
-        "chooseMember": """
+        "chooseMemberSpeciality": """
         
         Choisissez la spécialité du personnage !
         
@@ -104,7 +104,18 @@ class TextAndTranslation {
         "The team": "L'équipe",
         "letTheBestWin": "Que le meilleur gagne !!!",
         "selectDeadMember": "Vous ne pouvez pas selectioner ce personnage car il est mort",
-        "chooseMember": "Choisis parmis ces 3 peronnages",
+        "chooseMember": "Choisis parmis ces 3 personnages",
+        "opponentTeam": "Opposée à l'équipe",
+        "chooseAttacker": """
+        
+        Choisis ton attaquant !!!
+        
+        """,
+        "chooseOpponent": """
+        
+        Choisis le personnage que tu veux attaquer !!!
+        
+        """,
         "gameOver": "L'équipe "] // gameover not fully completed
     
     // MARK: English translation
@@ -171,7 +182,7 @@ class TextAndTranslation {
         
         """,
         
-        "chooseMember": """
+        "chooseMemberSpeciality": """
         
         Choose the specialty of the character!
         
@@ -205,7 +216,18 @@ class TextAndTranslation {
         "The team": "The team",
         "letTheBestWin": "Let the best win !!!",
         "selectDeadMember": "You can't select this character because is already dead !",
-        "chooseMember": "Choose from these 3 characters"
+        "chooseMember": "Choose from these 3 characters",
+        "opponentTeam": "Opposed to the team",
+        "chooseAttacker": """
+        
+        Choose your attacker !!!
+        
+        """,
+        "chooseOpponent": """
+        
+        Choose the character you want to attack !!!
+        
+        """
         ]
     
     
