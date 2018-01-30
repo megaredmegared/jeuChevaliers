@@ -98,6 +98,13 @@ class TextAndTranslation {
         "dead spell": "sortilège mortel",
         "poison flask": "fiole de poison",
         "magic egg": "oeuf sacré",
+        "the": "le",
+        "life": "vie",
+        "attack": "attaque",
+        "The team": "L'équipe",
+        "letTheBestWin": "Que le meilleur gagne !!!",
+        "selectDeadMember": "Vous ne pouvez pas selectioner ce personnage car il est mort",
+        "chooseMember": "Choisis parmis ces 3 peronnages",
         "gameOver": "L'équipe "] // gameover not fully completed
     
     // MARK: English translation
@@ -192,6 +199,13 @@ class TextAndTranslation {
         "dead spell": "dead spell",
         "poison flask": "poison flask",
         "magic egg": "magic egg",
+        "the": "the",
+        "life": "life",
+        "attack": "attack",
+        "The team": "The team",
+        "letTheBestWin": "Let the best win !!!",
+        "selectDeadMember": "You can't select this character because is already dead !",
+        "chooseMember": "Choose from these 3 characters"
         ]
     
     

@@ -16,7 +16,7 @@ class Team {
         case 2:
             textPrompt = "chooseThirdTeamMember"
         default:
-            break // check to write something usefull here
+            break
         }
         
         print(text.translation[textPrompt]!)

@@ -83,21 +83,21 @@ class Game {
         
         print("""
             
-            L'équipe \(teamOne.teamName) :
+            \(text.translation["The team"]!) \(teamOne.teamName) :
             
-            \(teamOne.teamMembers[0].memberName) le \(teamOne.teamMembers[0].memberSpeciality): vie = \(teamOne.teamMembers[0].life) attaque =  \(teamOne.teamMembers[0].attack)
-            \(teamOne.teamMembers[1].memberName) le \(teamOne.teamMembers[1].memberSpeciality): vie = \(teamOne.teamMembers[1].life) attaque =  \(teamOne.teamMembers[1].attack)
-            \(teamOne.teamMembers[2].memberName) le \(teamOne.teamMembers[2].memberSpeciality): vie = \(teamOne.teamMembers[2].life) attaque =  \(teamOne.teamMembers[2].attack)
+            \(teamOne.teamMembers[0].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[0].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[0].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[0].attack)
+            \(teamOne.teamMembers[1].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[1].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[1].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[1].attack)
+            \(teamOne.teamMembers[2].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[2].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[2].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[2].attack)
             
-            va affronter
+            vs
             
-            L'équipe \(teamTwo.teamName) :
+            \(text.translation["The team"]!) \(teamTwo.teamName) :
             
-            \(teamTwo.teamMembers[0].memberName) le \(teamTwo.teamMembers[0].memberSpeciality): vie = \(teamTwo.teamMembers[0].life) attaque =  \(teamTwo.teamMembers[0].attack)
-            \(teamTwo.teamMembers[1].memberName) le \(teamTwo.teamMembers[1].memberSpeciality): vie = \(teamTwo.teamMembers[1].life) attaque =  \(teamTwo.teamMembers[1].attack)
-            \(teamTwo.teamMembers[2].memberName) le \(teamTwo.teamMembers[2].memberSpeciality): vie = \(teamTwo.teamMembers[2].life) attaque =  \(teamTwo.teamMembers[2].attack)
+            \(teamTwo.teamMembers[0].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[0].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[0].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[0].attack)
+            \(teamTwo.teamMembers[1].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[1].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[1].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[1].attack)
+            \(teamTwo.teamMembers[2].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[2].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[2].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[2].attack)
             
-            Que le meilleur gagne !!!
+            \(text.translation["letTheBestWin"]!)
             
             """)
         startFight()
@@ -107,7 +107,7 @@ class Game {
     func chooseTeamOneFighter() {
         print("""
             
-            Choisis parmis ces 3 peronnages:
+            \(text.translation["chooseMember"]!):
             
             1. \(teamOne.teamMembers[0].memberName) 2. \(teamOne.teamMembers[1].memberName) 3. \(teamOne.teamMembers[2].memberName)
             
@@ -119,21 +119,21 @@ class Game {
                 if teamOne.teamMembers[0].life > 0 {
                     fighterOne = teamOne.teamMembers[0]
                 } else {
-                    print("Vous ne pouvez pas selectioner ce personnage car il est mort")
+                    print("\(text.translation["selectDeadMember"]!)")
                     chooseTeamOneFighter()
                 }
             case "2":
                 if teamOne.teamMembers[1].life > 0 {
                     fighterOne = teamOne.teamMembers[1]
                 } else {
-                    print("Vous ne pouvez pas selectioner ce personnage car il est mort")
+                    print("\(text.translation["selectDeadMember"]!)")
                     chooseTeamOneFighter()
                 }
             case "3":
                 if teamOne.teamMembers[2].life > 0 {
                     fighterOne = teamOne.teamMembers[2]
                 } else {
-                    print("Vous ne pouvez pas selectioner ce personnage car il est mort")
+                    print("\(text.translation["selectDeadMember"]!)")
                     chooseTeamOneFighter()
                 }
             default:
@@ -145,7 +145,7 @@ class Game {
     func chooseTeamTwoFighter() {
         print("""
             
-            Choisis parmis ces 3 peronnages:
+            \(text.translation["chooseMember"]!):
             
             1. \(teamTwo.teamMembers[0].memberName) 2. \(teamTwo.teamMembers[1].memberName) 3. \(teamTwo.teamMembers[2].memberName)
             
@@ -157,21 +157,21 @@ class Game {
                 if teamTwo.teamMembers[0].life > 0 {
                     fighterTwo = teamTwo.teamMembers[0]
                 } else {
-                    print("Vous ne pouvez pas selectioner ce personnage car il est mort")
+                    print("\(text.translation["selectDeadMember"]!)")
                     chooseTeamTwoFighter()
                 }
             case "2":
                 if teamTwo.teamMembers[1].life > 0 {
                     fighterTwo = teamTwo.teamMembers[1]
                 } else {
-                    print("Vous ne pouvez pas selectioner ce personnage car il est mort")
+                    print("\(text.translation["selectDeadMember"]!)")
                     chooseTeamTwoFighter()
                 }
             case "3":
                 if teamTwo.teamMembers[2].life > 0 {
                     fighterTwo = teamTwo.teamMembers[2]
                 } else {
-                    print("Vous ne pouvez pas selectioner ce personnage car il est mort")
+                    print("\(text.translation["selectDeadMember"]!)")
                     chooseTeamTwoFighter()
                 }
             default:
@@ -189,19 +189,19 @@ class Game {
                 
                 \(teamOne.teamName) :
                 
-                \(teamOne.teamMembers[0].memberName) le \(teamOne.teamMembers[0].memberSpeciality): vie = \(teamOne.teamMembers[0].life) attaque =  \(teamOne.teamMembers[0].attack)
-                \(teamOne.teamMembers[1].memberName) le \(teamOne.teamMembers[1].memberSpeciality): vie = \(teamOne.teamMembers[1].life) attaque =  \(teamOne.teamMembers[1].attack)
-                \(teamOne.teamMembers[2].memberName) le \(teamOne.teamMembers[2].memberSpeciality): vie = \(teamOne.teamMembers[2].life) attaque =  \(teamOne.teamMembers[2].attack)
+                \(teamOne.teamMembers[0].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[0].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[0].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[0].attack)
+                \(teamOne.teamMembers[1].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[1].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[1].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[1].attack)
+                \(teamOne.teamMembers[2].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[2].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[2].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[2].attack)
                 
                 \(teamTwo.teamName) :
                 
-                \(teamTwo.teamMembers[0].memberName) le \(teamTwo.teamMembers[0].memberSpeciality): vie = \(teamTwo.teamMembers[0].life) attaque =  \(teamTwo.teamMembers[0].attack)
-                \(teamTwo.teamMembers[1].memberName) le \(teamTwo.teamMembers[1].memberSpeciality): vie = \(teamTwo.teamMembers[1].life) attaque =  \(teamTwo.teamMembers[1].attack)
-                \(teamTwo.teamMembers[2].memberName) le \(teamTwo.teamMembers[2].memberSpeciality): vie = \(teamTwo.teamMembers[2].life) attaque =  
+                \(teamTwo.teamMembers[0].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[0].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[0].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[0].attack)
+                \(teamTwo.teamMembers[1].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[1].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[1].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[1].attack)
+                \(teamTwo.teamMembers[2].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[2].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[2].life) \(text.translation["attack"]!) =
                 \(teamTwo.teamMembers[2].attack)
                 
                 """)
-            print("l'équipe 1 attaque")
+            print("\(text.translation["The team"]!) \(teamOne.teamName) \(text.translation["attack"]!) !!!")
             chooseTeamOneFighter()
             chooseTeamTwoFighter()
             fighterTwo.life -= fighterOne.attack
@@ -212,18 +212,18 @@ class Game {
                 
                 \(teamOne.teamName) :
                 
-                \(teamOne.teamMembers[0].memberName) le \(teamOne.teamMembers[0].memberSpeciality): vie = \(teamOne.teamMembers[0].life) attaque =  \(teamOne.teamMembers[0].attack)
-                \(teamOne.teamMembers[1].memberName) le \(teamOne.teamMembers[1].memberSpeciality): vie = \(teamOne.teamMembers[1].life) attaque =  \(teamOne.teamMembers[1].attack)
-                \(teamOne.teamMembers[2].memberName) le \(teamOne.teamMembers[2].memberSpeciality): vie = \(teamOne.teamMembers[2].life) attaque =  \(teamOne.teamMembers[2].attack)
+                \(teamOne.teamMembers[0].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[0].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[0].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[0].attack)
+                \(teamOne.teamMembers[1].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[1].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[1].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[1].attack)
+                \(teamOne.teamMembers[2].memberName) \(text.translation["the"]!) \(teamOne.teamMembers[2].memberSpeciality): \(text.translation["life"]!) = \(teamOne.teamMembers[2].life) \(text.translation["attack"]!) =  \(teamOne.teamMembers[2].attack)
                 
                 \(teamTwo.teamName) :
                 
-                \(teamTwo.teamMembers[0].memberName) le \(teamTwo.teamMembers[0].memberSpeciality): vie = \(teamTwo.teamMembers[0].life) attaque =  \(teamTwo.teamMembers[0].attack)
-                \(teamTwo.teamMembers[1].memberName) le \(teamTwo.teamMembers[1].memberSpeciality): vie = \(teamTwo.teamMembers[1].life) attaque =  \(teamTwo.teamMembers[1].attack)
-                \(teamTwo.teamMembers[2].memberName) le \(teamTwo.teamMembers[2].memberSpeciality): vie = \(teamTwo.teamMembers[2].life) attaque =  \(teamTwo.teamMembers[2].attack)
+                \(teamTwo.teamMembers[0].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[0].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[0].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[0].attack)
+                \(teamTwo.teamMembers[1].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[1].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[1].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[1].attack)
+                \(teamTwo.teamMembers[2].memberName) \(text.translation["the"]!) \(teamTwo.teamMembers[2].memberSpeciality): \(text.translation["life"]!) = \(teamTwo.teamMembers[2].life) \(text.translation["attack"]!) =  \(teamTwo.teamMembers[2].attack)
                 
                 """)
-            print("l'équipe 2 attaque")
+            print("\(text.translation["The team"]!) \(teamTwo.teamName) \(text.translation["attack"]!) !!!")
             chooseTeamTwoFighter()
             chooseTeamOneFighter()
             fighterOne.life -= fighterTwo.attack
