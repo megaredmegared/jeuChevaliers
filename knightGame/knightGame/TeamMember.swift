@@ -5,7 +5,6 @@ class TeamMember {
     var attack = 0
     var healingAbility = 0
     var memberSpeciality = ""
-    let weapon = Weapons()
     
     func chooseSpeciality() {
         print(text.translation["chooseMemberSpeciality"]!)

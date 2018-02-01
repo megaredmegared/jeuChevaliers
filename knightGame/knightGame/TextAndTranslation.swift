@@ -116,6 +116,16 @@ class TextAndTranslation {
         Choisis le personnage que tu veux attaquer !!!
         
         """,
+        "chooseSomeoneToHeal": """
+        
+        ***   Choisis un personnage de ton équipe à guérrir !!!   ***
+        
+        """,
+        "noBonusWeapon": """
+        
+        ***   Vous n'aves pas reçu d'arme bonus !!!   ***
+        
+        """,
         "gameOver": "L'équipe "] // gameover not fully completed
     
     // MARK: English translation
@@ -227,7 +237,17 @@ class TextAndTranslation {
         
         Choose the character you want to attack !!!
         
-        """
+        """,
+        "chooseSomeoneToHeal": """
+
+        ***   Choose a character from your team to heal !!!   ***
+
+        """,
+        "noBonusWeapon": """
+        
+        ***   You have not received a bonus weapon !!!   ***
+        
+        """,
         ]
     
     

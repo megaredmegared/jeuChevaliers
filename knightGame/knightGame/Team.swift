@@ -1,6 +1,7 @@
 // class creation of a team
 
 class Team {
+    
     var teamName = ""
     
     var teamMembers = [TeamMember(name: ""), TeamMember(name: ""), TeamMember(name: "")]
