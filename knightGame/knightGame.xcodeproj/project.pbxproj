@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4D399FAC200F59490068676B /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D142C922007649F001E938B /* Team.swift */; };
-		4D399FB2200F878C0068676B /* GameCharactersAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D399FB1200F878C0068676B /* GameCharactersAssets.swift */; };
 		4D48F6141FF3C2610093FB18 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D48F6131FF3C2610093FB18 /* main.swift */; };
 		4D5090C52004B5AD00038671 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090C42004B5AD00038671 /* Game.swift */; };
 		4D5090D12005015200038671 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090D02005015200038671 /* TeamMember.swift */; };
@@ -33,7 +32,6 @@
 
 /* Begin PBXFileReference section */
 		4D142C922007649F001E938B /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
-		4D399FB1200F878C0068676B /* GameCharactersAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCharactersAssets.swift; sourceTree = "<group>"; };
 		4D48F6101FF3C2610093FB18 /* knightGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = knightGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D48F6131FF3C2610093FB18 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4D5090C42004B5AD00038671 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 				4DCD045C2021E8060081001C /* Teams.swift */,
 				4DCD045E2021E8D30081001C /* Fighters.swift */,
 				4DEA311520172A9A000C9740 /* Weapons.swift */,
-				4D399FB1200F878C0068676B /* GameCharactersAssets.swift */,
 			);
 			path = knightGame;
 			sourceTree = "<group>";
@@ -151,7 +148,6 @@
 				4D9E2081200DF1D900BE8CDD /* TextAndTranslation.swift in Sources */,
 				4D5090D12005015200038671 /* TeamMember.swift in Sources */,
 				4D399FAC200F59490068676B /* Team.swift in Sources */,
-				4D399FB2200F878C0068676B /* GameCharactersAssets.swift in Sources */,
 				4DCD045F2021E8D30081001C /* Fighters.swift in Sources */,
 				4D5090C52004B5AD00038671 /* Game.swift in Sources */,
 				4D5A98A120225266001C8A97 /* BonusWeapon.swift in Sources */,

@@ -12,7 +12,7 @@ class TextAndTranslation {
         
         "startMenu": """
         
-        Choisissez parmis une des c'est quatre options !
+        ***   Choisissez parmis une des c'est quatre options !   ***
         
         1. Jouer        2. Afficher la régle du jeu        3. Choix de la langue        4. Quitter
         
@@ -46,19 +46,19 @@ class TextAndTranslation {
         
         "chooseFirstTeamMember": """
         
-        Choisissez le nom de votre premier personnage !
+        ***   Choisissez le nom de votre premier personnage !   ***
         
         """,
         
         "chooseSecondTeamMember": """
         
-        Choisissez le nom de votre deuxième personnage !
+        ***   Choisissez le nom de votre deuxième personnage !   ***
         
         """,
         
         "chooseThirdTeamMember": """
         
-        Choisissez le nom de votre troisième personnage !
+        ***   Choisissez le nom de votre troisième personnage !   ***
         
         """,
         
@@ -72,7 +72,7 @@ class TextAndTranslation {
         
         "chooseMemberSpeciality": """
         
-        Choisissez la spécialité du personnage !
+        ***   Choisissez la spécialité du personnage !   ***
         
         1. Nain        2. Guerrier        3. Colosse        4. Mage
         
@@ -104,11 +104,11 @@ class TextAndTranslation {
         "The team": "L'équipe",
         "letTheBestWin": "Que le meilleur gagne !!!",
         "selectDeadMember": "Vous ne pouvez pas selectioner ce personnage car il est mort",
-        "chooseMember": "Choisis parmis ces 3 personnages",
+        "chooseMember": "***   Choisis parmis ces 3 personnages   ***",
         "opponentTeam": "Opposée à l'équipe",
         "chooseAttacker": """
         
-        Choisis ton attaquant !!!
+        ***   Choisis ton attaquant !!!   ***
         
         """,
         "chooseOpponent": """
@@ -134,7 +134,7 @@ class TextAndTranslation {
         
         "startMenu": """
         
-        Choose from one of the four options !
+        ***   Choose from one of the four options !   ***
         
         1. Play        2. Show game rules        3. Choose language     4. Exit
         
@@ -168,19 +168,19 @@ class TextAndTranslation {
         
         "chooseFirstTeamMember": """
         
-        Choose the name of your first character !
+        ***   Choose the name of your first character !   ***
         
         """,
         
         "chooseSecondTeamMember": """
         
-        Choose the name of your second character !
+        ***   Choose the name of your second character !   ***
         
         """,
         
         "chooseThirdTeamMember": """
         
-        Choose the name of your third character !
+        ***   Choose the name of your third character !   ***
         
         """,
         
@@ -194,7 +194,7 @@ class TextAndTranslation {
         
         "chooseMemberSpeciality": """
         
-        Choose the specialty of the character!
+        ***   Choose the specialty of the character !   ***
         
         1. Dwarf        2. Warrior        3. Colossus        4. Mage
         
@@ -226,11 +226,11 @@ class TextAndTranslation {
         "The team": "The team",
         "letTheBestWin": "Let the best win !!!",
         "selectDeadMember": "You can't select this character because is already dead !",
-        "chooseMember": "Choose from these 3 characters",
+        "chooseMember": "***   Choose from these 3 characters   ***",
         "opponentTeam": "Opposed to the team",
         "chooseAttacker": """
         
-        Choose your attacker !!!
+        ***   Choose your attacker !!!   ***
         
         """,
         "chooseOpponent": """
