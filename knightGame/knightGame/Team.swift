@@ -35,13 +35,13 @@ class Team {
         }
     }
     
-    func createMembers() {
+    func createMembers(teamNumber: Int) {
         createMember(member: 0)
-        teamMembers[0].chooseSpeciality()
+        teamMembers[0].chooseSpeciality(teamNumber: teamNumber)
         createMember(member: 1)
-        teamMembers[1].chooseSpeciality()
+        teamMembers[1].chooseSpeciality(teamNumber: teamNumber)
         createMember(member: 2)
-        teamMembers[2].chooseSpeciality()
+        teamMembers[2].chooseSpeciality(teamNumber: teamNumber)
     }
     
     init(name: String) {

@@ -7,11 +7,13 @@
 //
 
 // import Foundation optionel???
+
 import Foundation
 var text = TextAndTranslation()
 var team = Teams()
 var fighter = Fighters()
 let weapon = Weapons()
+let pause = Pause()
 
 let play = Game()
 play.gameMenu()

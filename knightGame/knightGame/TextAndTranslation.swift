@@ -40,6 +40,9 @@ class TextAndTranslation {
         
         "createSecondTeamName": """
         
+        
+        
+        
         ***   Veuillez entrer un nom pour la deuxième équipe   ***
         
         """,
@@ -88,7 +91,7 @@ class TextAndTranslation {
         "Mage": "Mage",
         "Colossus": "Colosse",
         "axe": "hache",
-        "cudgel": "goudin",
+        "cudgel": "gourdin",
         "magic wand": "baguette magique",
         "sword": "épée",
         "excalibur": "excalibur",
@@ -123,8 +126,16 @@ class TextAndTranslation {
         """,
         "noBonusWeapon": """
         
+        *************************************************
         ***   Vous n'aves pas reçu d'arme bonus !!!   ***
+        *************************************************
         
+        """,
+        "bonusReceived": "Vous avez reçu le bonus",
+        "maxMage": """
+
+        ***   Vous ne pouvez pas avoir plus de 1 mage par équipe séléctionez une autre specialité  !!!  ***
+
         """,
         "gameOver": "L'équipe "] // gameover not fully completed
     
@@ -161,6 +172,9 @@ class TextAndTranslation {
         """,
         
         "createSecondTeamName": """
+        
+        
+        
         
         ***   Please enter a name for the second team   ***
         
@@ -245,7 +259,15 @@ class TextAndTranslation {
         """,
         "noBonusWeapon": """
         
+        ****************************************************
         ***   You have not received a bonus weapon !!!   ***
+        ****************************************************
+        
+        """,
+        "bonusReceived": "You received the bonus",
+        "maxMage": """
+        
+        ***   You can not have more than 1 mage per team select another specialty !!!   ***
         
         """,
         ]

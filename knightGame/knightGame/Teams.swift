@@ -26,7 +26,7 @@ class Teams {
                 createTeam(chooseTeam: chooseTeam)
             } else {
                 text.usedNames.append(number[chooseTeam].teamName)
-                number[chooseTeam].createMembers()
+                number[chooseTeam].createMembers(teamNumber: chooseTeam)
             }
         }
     }

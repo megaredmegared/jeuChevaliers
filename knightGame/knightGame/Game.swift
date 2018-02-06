@@ -4,7 +4,7 @@
 
 class Game {
     var runGame = true // Game parameter to trigger the game
-    var bonusWeapon = BonusWeapon()
+    var bonus = Bonus()
     
     // *****************************
     // MARK: Display starting menu *
@@ -57,21 +57,17 @@ class Game {
             print(text.translation["chooseAttacker"]!)
             fighter.choose(teamNumber: 0)
             if fighter.number[0].memberSpeciality == "Mage" {
-                bonusWeapon.chest(fighterSelect: 0)
+                bonus.chest(fighterSelect: 0)
                 print(text.translation["chooseSomeoneToHeal"]!)
                 fighter.chooseFightersToHeal(teamNumber: 0)
                 fighter.toHealNumber[0].life += fighter.number[0].healingAbility
-                print("""
-                    
-                    \(fighter.toHealNumber[0].memberName) \(fighter.toHealNumber[0].life)
-                    \(team.number[0].teamMembers[0].memberName) \(team.number[0].teamMembers[0].life)
-                    
-                    """)
+                bonus.bacKToStandardWeapon(fighterSelect: 0)
             } else {
-                bonusWeapon.chest(fighterSelect: 0)
+                bonus.chest(fighterSelect: 0)
                 print(text.translation["chooseOpponent"]!)
                 fighter.choose(teamNumber: 1)
                 fighter.number[1].life -= fighter.number[0].attack
+                bonus.bacKToStandardWeapon(fighterSelect: 0)
             }
             
             if (team.number[1].teamMembers[0].life <= 0 && team.number[1].teamMembers[1].life <= 0 && team.number[1].teamMembers[2].life <= 0) {
@@ -82,15 +78,17 @@ class Game {
             print(text.translation["chooseAttacker"]!)
             fighter.choose(teamNumber: 1)
             if fighter.number[1].memberSpeciality == "Mage" {
-                bonusWeapon.chest(fighterSelect: 1)
+                bonus.chest(fighterSelect: 1)
                 print(text.translation["chooseSomeoneToHeal"]!)
                 fighter.chooseFightersToHeal(teamNumber: 1)
                 fighter.toHealNumber[1].life += fighter.number[1].healingAbility
+                bonus.bacKToStandardWeapon(fighterSelect: 1)
             } else {
-                bonusWeapon.chest(fighterSelect: 1)
+                bonus.chest(fighterSelect: 1)
                 print(text.translation["chooseOpponent"]!)
                 fighter.choose(teamNumber: 0)
                 fighter.number[0].life -= fighter.number[1].attack
+                bonus.bacKToStandardWeapon(fighterSelect: 1)
             }
         }
         

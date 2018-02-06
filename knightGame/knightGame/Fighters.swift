@@ -1,5 +1,5 @@
 class Fighters {
-
+    
     var number = [TeamMember(name: ""), TeamMember(name: "")]
     var toHealNumber = [TeamMember(name: ""), TeamMember(name: "")]
     
@@ -9,7 +9,7 @@ class Fighters {
         if team.number[teamNumber].teamMembers[member].life <= 0 {
             return "☠️"
         } else {
-            return "\(team.number[teamNumber].teamMembers[member].memberName)"
+            return "\(team.number[teamNumber].teamMembers[member].memberName) "
         }
     }
     
@@ -18,14 +18,28 @@ class Fighters {
     // *********************************
     
     func displayChooseFighter(teamNumber: Int) {
-        var opponentTeam: Int // can i just calculate it ?
+        /*var opponentTeam: Int // can i just calculate it ?
+         
+         if teamNumber == 0 {
+         opponentTeam = 1
+         } else {
+         opponentTeam = 0
+         }*/
         
-        if teamNumber == 0 {
-            opponentTeam = 1
-        } else {
-            opponentTeam = 0
+        let opponentTeam = abs(teamNumber - 1) // caculate opponent team
+        
+        func infoOpponent(_ member: Int) -> String {
+            if team.number[opponentTeam].teamMembers[member].life <= 0 {
+                return ""
+            } else {
+                return "\(team.number[opponentTeam].teamMembers[member].memberSpeciality)   /   \(text.translation["life"]!): \(team.number[opponentTeam].teamMembers[member].life) \(team.number[opponentTeam].teamMembers[member].weaponName):  \(team.number[opponentTeam].teamMembers[member].attack)"
+            }
         }
+        
         print("""
+            
+            
+            
             
             *************************   \(text.translation["The team"]!) \(team.number[teamNumber].teamName) \(text.translation["attack"]!) !!!   *************************
             """)
@@ -35,26 +49,33 @@ class Fighters {
             *
             *     \(text.translation["opponentTeam"]!) \(team.number[opponentTeam].teamName) :
             *
-            *     \(team.number[opponentTeam].teamMembers[0].memberName)
-            *     \(team.number[opponentTeam].teamMembers[0].memberSpeciality)   /   \(text.translation["life"]!): \(team.number[opponentTeam].teamMembers[0].life) \(text.translation["attack"]!):  \(team.number[opponentTeam].teamMembers[0].attack)
+            *     \(displayDeadMember(teamNumber: opponentTeam, member: 0))
+            *     \(infoOpponent(0))
             *
-            *     \(team.number[opponentTeam].teamMembers[1].memberName)
-            *     \(team.number[opponentTeam].teamMembers[1].memberSpeciality)   /   \(text.translation["life"]!): \(team.number[opponentTeam].teamMembers[1].life) \(text.translation["attack"]!):  \(team.number[opponentTeam].teamMembers[1].attack)
+            *     \(displayDeadMember(teamNumber: opponentTeam, member: 1))
+            *     \(infoOpponent(1))
             *
-            *     \(team.number[opponentTeam].teamMembers[2].memberName)
-            *     \(team.number[opponentTeam].teamMembers[2].memberSpeciality)   /   \(text.translation["life"]!): \(team.number[opponentTeam].teamMembers[2].life) \(text.translation["attack"]!): \(team.number[opponentTeam].teamMembers[2].attack)
+            *     \(displayDeadMember(teamNumber: opponentTeam, member: 2))
+            *     \(infoOpponent(2))
             *
             *
             ************************************************************************************************
             
             """)
-        
     }
+    
     func chooseFightersToHeal(teamNumber: Int) {
         
+        func infoFightersToHeal(_ member: Int) -> String {
+            if team.number[teamNumber].teamMembers[member].life <= 0 {
+                return ""
+            } else {
+                return "< \(text.translation["life"]!): \(team.number[teamNumber].teamMembers[member].life) >"
+            }
+        }
         print("""
             
-            1. \(displayDeadMember(teamNumber: teamNumber, member: 0))   < \(text.translation["life"]!): \(team.number[teamNumber].teamMembers[0].life) >   /   2. \(displayDeadMember(teamNumber: teamNumber, member: 1))   < \(text.translation["life"]!): \(team.number[teamNumber].teamMembers[1].life) >   /   3. \(displayDeadMember(teamNumber: teamNumber, member: 2))   < \(text.translation["life"]!): \(team.number[teamNumber].teamMembers[2].life) >
+            1. \(displayDeadMember(teamNumber: teamNumber, member: 0))   \(infoFightersToHeal(0))   /   2. \(displayDeadMember(teamNumber: teamNumber, member: 1))   \(infoFightersToHeal(1))   /   3. \(displayDeadMember(teamNumber: teamNumber, member: 2))   \(infoFightersToHeal(2))
             
             """)
         
@@ -90,9 +111,17 @@ class Fighters {
     
     func choose(teamNumber: Int) {
         
+        func infoAttacker(_ member: Int) -> String {
+            if team.number[teamNumber].teamMembers[member].life <= 0 {
+                return ""
+            } else {
+                return "< \(text.translation["life"]!): \(team.number[teamNumber].teamMembers[member].life) \(team.number[teamNumber].teamMembers[member].weaponName): \(team.number[teamNumber].teamMembers[member].attack) >"
+            }
+        }
+        
         print("""
             
-            1. \(displayDeadMember(teamNumber: teamNumber, member: 0))   < \(text.translation["life"]!): \(team.number[teamNumber].teamMembers[0].life) \(text.translation["attack"]!): \(team.number[teamNumber].teamMembers[0].attack) >   /   2. \(displayDeadMember(teamNumber: teamNumber, member: 1))   < \(text.translation["life"]!): \(team.number[teamNumber].teamMembers[1].life) \(text.translation["attack"]!): \(team.number[teamNumber].teamMembers[1].attack) >   /   3. \(displayDeadMember(teamNumber: teamNumber, member: 2))   < \(text.translation["life"]!): \(team.number[teamNumber].teamMembers[2].life) \(text.translation["attack"]!): \(team.number[teamNumber].teamMembers[2].attack) >
+            1. \(displayDeadMember(teamNumber: teamNumber, member: 0))   \(infoAttacker(0))   /   2. \(displayDeadMember(teamNumber: teamNumber, member: 1))   \(infoAttacker(1))   /   3. \(displayDeadMember(teamNumber: teamNumber, member: 2))   \(infoAttacker(2))
             
             """)
         
