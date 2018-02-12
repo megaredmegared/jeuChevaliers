@@ -1,3 +1,5 @@
+import Foundation
+
 // *****************
 // *   Game Logic  *
 // *****************
@@ -51,12 +53,12 @@ class Game {
     // ***************************
     
     func fight() {
+        let startTimer = DispatchTime.now() // starting time of the game
         while ((team.number[0].teamMembers[0].life > 0) || (team.number[0].teamMembers[1].life > 0) || (team.number[0].teamMembers[2].life > 0)) && ((team.number[1].teamMembers[0].life > 0) || (team.number[1].teamMembers[1].life > 0) || (team.number[1].teamMembers[2].life > 0)) {
-            
             fighter.displayChooseFighter(teamNumber: 0)
             print(text.translation["chooseAttacker"]!)
             fighter.choose(teamNumber: 0)
-            if fighter.number[0].memberSpeciality == "Mage" {
+            if fighter.number[0].memberSpeciality == text.translation["Mage"]! {
                 bonus.chest(fighterSelect: 0)
                 print(text.translation["chooseSomeoneToHeal"]!)
                 fighter.chooseFightersToHeal(teamNumber: 0)
@@ -77,7 +79,7 @@ class Game {
             fighter.displayChooseFighter(teamNumber: 1)
             print(text.translation["chooseAttacker"]!)
             fighter.choose(teamNumber: 1)
-            if fighter.number[1].memberSpeciality == "Mage" {
+            if fighter.number[1].memberSpeciality == text.translation["Mage"]! {
                 bonus.chest(fighterSelect: 1)
                 print(text.translation["chooseSomeoneToHeal"]!)
                 fighter.chooseFightersToHeal(teamNumber: 1)
@@ -92,6 +94,10 @@ class Game {
             }
         }
         
+        let endTimer = DispatchTime.now() // ending time of the game
+        gameTime = Int(round((Double(endTimer.uptimeNanoseconds - startTimer.uptimeNanoseconds) * 0.000000001 / 60)))
+        
+        
         
         print("""
             
@@ -105,12 +111,37 @@ class Game {
 
 
             """)
-        if (team.number[0].teamMembers[0].life + team.number[0].teamMembers[1].life + team.number[0].teamMembers[2].life > 0) {
-            print("Game over")//  print(text.translation["gameOver"]!, \(teams[0].teamName))
-        } else {
-            print("l'équipe 2 a gagnée")
+        displayStatistics()
+    }
+    
+    
+    // *******************************
+    // MARK: Display statistics menu *
+    // *******************************
+    
+    func displayStatistics() {
+        print(text.translation["statitisticsMenu"]!)
+        if let choice = readLine() {
+            
+            switch choice {
+                
+            case "1" : // display statistics
+                statistics.displayResults()
+                
+            case "2" : // Return to start menu
+                gameStart()
+                
+            case "3" : // Exit the game
+                runGame = false
+                
+            default : // Display error message for bad entry
+                print(text.translation["selectionError"]!)
+                displayStatistics()
+            }
         }
     }
+
+    
     
     
     // **************************

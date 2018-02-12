@@ -14,6 +14,8 @@ var team = Teams()
 var fighter = Fighters()
 let weapon = Weapons()
 let pause = Pause()
+let statistics = Statistics()
+var gameTime: Int
 
 let play = Game()
 play.gameMenu()

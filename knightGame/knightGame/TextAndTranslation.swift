@@ -12,7 +12,7 @@ class TextAndTranslation {
         
         "startMenu": """
         
-        ***   Choisissez parmis une des c'est quatre options !   ***
+        ***   Choisissez parmis une de c'est quatre options !   ***
         
         1. Jouer        2. Afficher la régle du jeu        3. Choix de la langue        4. Quitter
         
@@ -137,7 +137,20 @@ class TextAndTranslation {
         ***   Vous ne pouvez pas avoir plus de 1 mage par équipe séléctionez une autre specialité  !!!  ***
 
         """,
-        "gameOver": "L'équipe "] // gameover not fully completed
+        "has attacked": "a attaqué",
+        "has healed": "a soigné",
+        "times": "fois",
+        "hasWon": "a gagnée, félicitation au joueur !!!",
+        "statitisticsMenu": """
+        
+        ***   Choisissez parmis une de ces trois options   ***
+        
+        1. Afficher les statistiques        2. Revenir au menu principal        3. Quitter le jeu
+        
+        """,
+        "youPlayed": "Vous avez combattu pendant",
+        "minutes": "minutes",
+        ]
     
     // MARK: English translation
     
@@ -145,7 +158,7 @@ class TextAndTranslation {
         
         "startMenu": """
         
-        ***   Choose from one of the four options !   ***
+        ***   Choose from one of these four options !   ***
         
         1. Play        2. Show game rules        3. Choose language     4. Exit
         
@@ -270,6 +283,19 @@ class TextAndTranslation {
         ***   You can not have more than 1 mage per team select another specialty !!!   ***
         
         """,
+        "has attacked": "has attacked",
+        "has healed": "has healed",
+        "times": "times",
+        "hasWon": "has won, congratulations to the player !!!",
+        "statitisticsMenu": """
+        
+        ***   Choose one of these three options   ***
+        
+        1. View Statistics        2. Return to Main Menu        3. Exit Game
+        
+        """,
+        "youPlayed": "You fighted during",
+        "minutes": "minutes",
         ]
     
     

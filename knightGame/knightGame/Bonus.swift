@@ -20,7 +20,7 @@ class Bonus {
                 print("""
                     
                     ****************************
-                    *** \(text.translation["bonusReceived"]!) < \(fighter.number[number].weaponName): \(weapon.healBonus[randomWeapon]!) >  ***
+                    *** \(text.translation["bonusReceived"]!) < \(fighter.number[number].weaponName): 💊 \(weapon.healBonus[randomWeapon]!) >  ***
                     ****************************
                     
                     """)
@@ -36,7 +36,7 @@ class Bonus {
                 print("""
                     
                     ****************************
-                    *** \(text.translation["bonusReceived"]!) < \(fighter.number[number].weaponName): \(weapon.attackBonus[randomWeapon]!) >  ***
+                    *** \(text.translation["bonusReceived"]!) < \(fighter.number[number].weaponName): 🗡 \(weapon.attackBonus[randomWeapon]!) >  ***
                     ****************************
                     
                     """)
