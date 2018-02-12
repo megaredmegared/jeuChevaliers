@@ -57,7 +57,7 @@ class Game {
         while ((team.number[0].teamMembers[0].life > 0) || (team.number[0].teamMembers[1].life > 0) || (team.number[0].teamMembers[2].life > 0)) && ((team.number[1].teamMembers[0].life > 0) || (team.number[1].teamMembers[1].life > 0) || (team.number[1].teamMembers[2].life > 0)) {
             fighter.displayChooseFighter(teamNumber: 0)
             print(text.translation["chooseAttacker"]!)
-            fighter.choose(teamNumber: 0)
+            fighter.choose(teamNumber: 0, enableStatistics: true)
             if fighter.number[0].memberSpeciality == text.translation["Mage"]! {
                 bonus.chest(fighterSelect: 0)
                 print(text.translation["chooseSomeoneToHeal"]!)
@@ -67,7 +67,7 @@ class Game {
             } else {
                 bonus.chest(fighterSelect: 0)
                 print(text.translation["chooseOpponent"]!)
-                fighter.choose(teamNumber: 1)
+                fighter.choose(teamNumber: 1, enableStatistics: false)
                 fighter.number[1].life -= fighter.number[0].attack
                 bonus.bacKToStandardWeapon(fighterSelect: 0)
             }
@@ -78,7 +78,7 @@ class Game {
             
             fighter.displayChooseFighter(teamNumber: 1)
             print(text.translation["chooseAttacker"]!)
-            fighter.choose(teamNumber: 1)
+            fighter.choose(teamNumber: 1, enableStatistics: true)
             if fighter.number[1].memberSpeciality == text.translation["Mage"]! {
                 bonus.chest(fighterSelect: 1)
                 print(text.translation["chooseSomeoneToHeal"]!)
@@ -88,7 +88,7 @@ class Game {
             } else {
                 bonus.chest(fighterSelect: 1)
                 print(text.translation["chooseOpponent"]!)
-                fighter.choose(teamNumber: 0)
+                fighter.choose(teamNumber: 0, enableStatistics: false)
                 fighter.number[0].life -= fighter.number[1].attack
                 bonus.bacKToStandardWeapon(fighterSelect: 1)
             }

@@ -26,19 +26,19 @@ class Fighters {
     // *********************************
     // MARK: Selection of the fighters *
     // *********************************
-
+    
     func infoOpponent(opponentTeam: Int, member: Int) -> String {
         if team.number[opponentTeam].teamMembers[member].life <= 0 {
             return ""
         } else {
-            return "\(team.number[opponentTeam].teamMembers[member].memberSpeciality)   /   \(text.translation["life"]!): \(team.number[opponentTeam].teamMembers[member].life)   /   \(team.number[opponentTeam].teamMembers[member].weaponName):  \(displayAttackOrhealingAbility(teamNumber: opponentTeam, member: member))"
+            return "\(team.number[opponentTeam].teamMembers[member].memberSpeciality)   /   \(text.translation["life"]!): ❤️ \(team.number[opponentTeam].teamMembers[member].life)   /   \(team.number[opponentTeam].teamMembers[member].weaponName):  \(displayAttackOrhealingAbility(teamNumber: opponentTeam, member: member))"
         }
     }
     
     func displayChooseFighter(teamNumber: Int) {
         
         let opponentTeam = abs(teamNumber - 1) // caculate opponent team using absolute value for one line code var or let ?
-      
+        
         print("""
             
             
@@ -48,7 +48,7 @@ class Fighters {
             """)
         
         print("""
-            *
+            * 
             *
             *     \(text.translation["opponentTeam"]!) \(team.number[opponentTeam].teamName) :
             *
@@ -66,18 +66,18 @@ class Fighters {
             
             """)
     }
-  
+    
     func infoFightersToHeal(teamNumber: Int, member: Int) -> String {
         if team.number[teamNumber].teamMembers[member].life <= 0 {
             return ""
         } else {
-            return "< \(text.translation["life"]!): \(team.number[teamNumber].teamMembers[member].life) >"
+            return "< \(text.translation["life"]!): ❤️ \(team.number[teamNumber].teamMembers[member].life) >"
         }
     }
-
+    
     func chooseFightersToHeal(teamNumber: Int) {
         
-
+        
         print("""
             
             1. \(displayDeadMember(teamNumber: teamNumber, member: 0))   \(infoFightersToHeal(teamNumber: teamNumber, member: 0))   /   2. \(displayDeadMember(teamNumber: teamNumber, member: 1))   \(infoFightersToHeal(teamNumber: teamNumber, member: 1))   /   3. \(displayDeadMember(teamNumber: teamNumber, member: 2))   \(infoFightersToHeal(teamNumber: teamNumber, member: 2))
@@ -100,16 +100,16 @@ class Fighters {
             }
         }
     }
-
+    
     func infoAttacker(teamNumber: Int, member: Int) -> String {
         if team.number[teamNumber].teamMembers[member].life <= 0 {
             return ""
         } else {
-            return "< \(text.translation["life"]!): \(team.number[teamNumber].teamMembers[member].life) \(team.number[teamNumber].teamMembers[member].weaponName): \(displayAttackOrhealingAbility(teamNumber: teamNumber, member: member)) >"
+            return "< \(text.translation["life"]!): ❤️ \(team.number[teamNumber].teamMembers[member].life) / \(team.number[teamNumber].teamMembers[member].weaponName): \(displayAttackOrhealingAbility(teamNumber: teamNumber, member: member)) >"
         }
     }
     
-    func choose(teamNumber: Int) {
+    func choose(teamNumber: Int, enableStatistics: Bool) {
         
         print("""
             
@@ -123,16 +123,17 @@ class Fighters {
             case "1", "2", "3":
                 if team.number[teamNumber].teamMembers[member].life > 0 {
                     number[teamNumber] = team.number[teamNumber].teamMembers[member]
-                    statistics.countMoves(teamNumber: teamNumber, member: member)
+                    if enableStatistics == true {
+                        statistics.countMoves(teamNumber: teamNumber, member: member)
+                    }
                 } else {
                     print("\(text.translation["selectDeadMember"]!)")
-                    choose(teamNumber: teamNumber)
+                    choose(teamNumber: teamNumber, enableStatistics: enableStatistics)
                 }
             default:
                 print(text.translation["selectionError"]!)
-                choose(teamNumber: teamNumber)
+                choose(teamNumber: teamNumber, enableStatistics: enableStatistics)
             }
         }
     }
-    
 }
