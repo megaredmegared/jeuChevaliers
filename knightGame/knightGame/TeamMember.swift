@@ -1,11 +1,48 @@
+/**
+ Class to create a member with his name and his speciality (Dwarf, Warrior, Mage, Colossus).
+ */
+
 class TeamMember {
     
+    /**
+     Member's name.
+     */
+    
     var memberName = ""
+    
+    /**
+     Member's life points.
+     */
+    
     var life = 0
+    
+    /**
+     Member's attack points.
+     */
+    
     var attack = 0
+    
+    /**
+     Member's weapon.
+     */
+    
     var weaponName = ""
+    
+    /**
+     Member's healing ability points.
+     */
+    
     var healingAbility = 0
+    
+    /**
+     Member's speciality (Dwarf, Warrior, Mage, Colossus).
+     */
+    
     var memberSpeciality = ""
+    
+    /**
+     Choose the speciality (Dwarf, Warrior, Mage, Colossus) of the member
+     */
     
     func chooseSpeciality(teamNumber: Int) {
         print(text.translation["chooseMemberSpeciality"]!)
@@ -27,8 +64,8 @@ class TeamMember {
                 weaponName = text.translation["cudgel"]!
                 life = 120
             case "4":
-                // Code refactoring ???
-                if team.number[teamNumber].teamMembers[0].memberSpeciality == text.translation["Mage"]! || team.number[teamNumber].teamMembers[1].memberSpeciality == text.translation["Mage"]!  {
+                // Check for max 1 mage per team.
+                if team[teamNumber].teamMembers[0].memberSpeciality == text.translation["Mage"]! || team[teamNumber].teamMembers[1].memberSpeciality == text.translation["Mage"]!  {
                     print(text.translation["maxMage"]!)
                     chooseSpeciality(teamNumber: teamNumber)
                 } else {

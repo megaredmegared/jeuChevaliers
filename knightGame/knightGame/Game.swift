@@ -19,7 +19,15 @@ class Game {
             switch choice {
                 
             case "1" : // Start to play
-                team.create()
+                text.usedNames = [""] // Empty the collected teams and characters names for an new game.
+                team = [Team(name: ""), Team(name: "")] // Empty the teams for an new game.
+                playersStatistics = [Statistics(), Statistics()] // Empty the statistics for an new game.
+                gameTime = 0 // Empty the statistic of game time for an new game.
+                
+                print(team[0].teamName)
+                print(team[0].teamMembers[0].memberName)
+                team[0].createTeam(teamNumber: 0)
+                team[1].createTeam(teamNumber: 1)
                 fight()
                 
             case "2" : // Display the game rules
@@ -54,7 +62,7 @@ class Game {
     
     func fight() {
         let startTimer = DispatchTime.now() // starting time of the game
-        while ((team.number[0].teamMembers[0].life > 0) || (team.number[0].teamMembers[1].life > 0) || (team.number[0].teamMembers[2].life > 0)) && ((team.number[1].teamMembers[0].life > 0) || (team.number[1].teamMembers[1].life > 0) || (team.number[1].teamMembers[2].life > 0)) {
+        while ((team[0].teamMembers[0].life > 0) || (team[0].teamMembers[1].life > 0) || (team[0].teamMembers[2].life > 0)) && ((team[1].teamMembers[0].life > 0) || (team[1].teamMembers[1].life > 0) || (team[1].teamMembers[2].life > 0)) {
             fighter.displayChooseFighter(teamNumber: 0)
             print(text.translation["chooseAttacker"]!)
             fighter.choose(teamNumber: 0, enableStatistics: true)
@@ -72,7 +80,7 @@ class Game {
                 bonus.bacKToStandardWeapon(fighterSelect: 0)
             }
             
-            if (team.number[1].teamMembers[0].life <= 0 && team.number[1].teamMembers[1].life <= 0 && team.number[1].teamMembers[2].life <= 0) {
+            if (team[1].teamMembers[0].life <= 0 && team[1].teamMembers[1].life <= 0 && team[1].teamMembers[2].life <= 0) {
                 break
             }
             
@@ -111,6 +119,7 @@ class Game {
 
 
             """)
+        
         displayStatistics()
     }
     
@@ -126,7 +135,9 @@ class Game {
             switch choice {
                 
             case "1" : // display statistics
-                statistics.displayResults()
+                playersStatistics[0].displayWinner()
+                playersStatistics[0].displayResults(teamNumber: 0)
+                playersStatistics[1].displayResults(teamNumber: 1)
                 
             case "2" : // Return to start menu
                 gameStart()
@@ -140,7 +151,7 @@ class Game {
             }
         }
     }
-
+    
     
     
     

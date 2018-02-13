@@ -1,85 +1,79 @@
 import Foundation
+
+/**
+ Class for statistics to count the time elapsed during the game and the number of times a character has been chosen to attack or heal.
+ */
+
 class Statistics {
     
-    var playerOneNumbersOfMoves = [0, 0, 0]
-    var playerTwoNumbersOfMoves = [0, 0, 0]
-
+    /**
+     Array to stock the number of times a player has been chosen for a move (attack or heal).
+     */
+    var playerNumbersOfMoves = [0, 0, 0]
+    
+    /**
+     Incrementation of number of times a player has been chosen for a move (attack or heal).
+     */
+    
     func countMoves(teamNumber: Int, member: Int) {
-        
-        switch teamNumber {
-        case 0:
-            playerOneNumbersOfMoves[member] += 1
-        case 1:
-            playerTwoNumbersOfMoves[member] += 1
-        default:
-            break
-        }
+        playerNumbersOfMoves[member] += 1
     }
-
+    
+    /**
+     Display the text for a character with attack capacity or healing capacity.
+     */
     
     func displayInfoAttackOrHeal(teamNumber: Int, member: Int) -> String {
-        switch teamNumber {
-        case 0:
-            if team.number[teamNumber].teamMembers[member].memberSpeciality == text.translation["Mage"]! {
-                return "\(text.translation["has healed"]!) \(playerOneNumbersOfMoves[member]) \(text.translation["times"]!)"
-            } else {
-                return "\(text.translation["has attacked"]!) \(playerOneNumbersOfMoves[member]) \(text.translation["times"]!)"
-            }
-        case 1:
-            if team.number[teamNumber].teamMembers[member].memberSpeciality == text.translation["Mage"]! {
-                return "\(text.translation["has healed"]!) \(playerTwoNumbersOfMoves[member]) \(text.translation["times"]!)"
-            } else {
-                return "\(text.translation["has attacked"]!) \(playerTwoNumbersOfMoves[member]) \(text.translation["times"]!)"
-            }
-        default:
-           return ""
+        if team[teamNumber].teamMembers[member].memberSpeciality == text.translation["Mage"]! {
+            return "\(text.translation["has healed"]!) \(playerNumbersOfMoves[member]) \(text.translation["times"]!)"
+        } else {
+            return "\(text.translation["has attacked"]!) \(playerNumbersOfMoves[member]) \(text.translation["times"]!)"
         }
     }
     
-    func displayResults() {
+    /**
+     Display winner of the game and the time played.
+     */
+    
+    func displayWinner() {
         
-        if (team.number[1].teamMembers[0].life <= 0 && team.number[1].teamMembers[1].life <= 0 && team.number[1].teamMembers[2].life <= 0) {
-            print("""
-                
-                *$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*
-                
-                            \(text.translation["The team"]!) \(team.number[0].teamName) \(text.translation["hasWon"]!)
-                
-                *$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*
-                
-                """)
+        let teamNumber: Int
+        
+        if (team[1].teamMembers[0].life <= 0 && team[1].teamMembers[1].life <= 0 && team[1].teamMembers[2].life <= 0) {
+            teamNumber = 0
         } else {
-            print("""
-                
-                *$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*
-                
-                            \(text.translation["The team"]!) \(team.number[1].teamName) \(text.translation["hasWon"]!)
-                
-                *$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*
-                
-                """)
+            teamNumber = 1
         }
         
         print("""
             
+            *$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*
+            
+            \(text.translation["The team"]!) \(team[teamNumber].teamName) \(text.translation["hasWon"]!)
+            
+            *$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*$*
+            
             \(text.translation["youPlayed"]!) \(gameTime) \(text.translation["minutes"]!) !!!
-            
-            \(team.number[0].teamName)
-            
-            \(playerOneNumbersOfMoves[0]) \(team.number[0].teamMembers[0].memberName) \(displayInfoAttackOrHeal(teamNumber: 0, member: 0))
-            \(playerOneNumbersOfMoves[1]) \(team.number[0].teamMembers[1].memberName) \(displayInfoAttackOrHeal(teamNumber: 0, member: 1))
-            \(playerOneNumbersOfMoves[2]) \(team.number[0].teamMembers[2].memberName) \(displayInfoAttackOrHeal(teamNumber: 0, member: 2))
-            
-            
-            \(team.number[1].teamName)
-            
-            \(playerTwoNumbersOfMoves[0]) \(team.number[1].teamMembers[0].memberName) \(displayInfoAttackOrHeal(teamNumber: 1, member: 0))
-            \(playerTwoNumbersOfMoves[1]) \(team.number[1].teamMembers[1].memberName) \(displayInfoAttackOrHeal(teamNumber: 1, member: 1))
-            \(playerTwoNumbersOfMoves[2]) \(team.number[1].teamMembers[2].memberName) \(displayInfoAttackOrHeal(teamNumber: 1, member: 2))
             
             
             """)
     }
     
+    /**
+     Display number of move per character.
+     */
     
+    func displayResults(teamNumber: Int) {
+        
+        print("""
+            
+            \(team[teamNumber].teamName)
+            
+            \(team[teamNumber].teamMembers[0].memberName) \(displayInfoAttackOrHeal(teamNumber: teamNumber, member: 0))
+            \(team[teamNumber].teamMembers[1].memberName) \(displayInfoAttackOrHeal(teamNumber: teamNumber, member: 1))
+            \(team[teamNumber].teamMembers[2].memberName) \(displayInfoAttackOrHeal(teamNumber: teamNumber, member: 2))
+            
+            
+            """)
+    }
 }

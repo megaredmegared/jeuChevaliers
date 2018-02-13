@@ -13,8 +13,6 @@
 		4D5090D12005015200038671 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5090D02005015200038671 /* TeamMember.swift */; };
 		4D5A98A120225266001C8A97 /* Bonus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5A98A020225266001C8A97 /* Bonus.swift */; };
 		4D9E2081200DF1D900BE8CDD /* TextAndTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E2080200DF1D900BE8CDD /* TextAndTranslation.swift */; };
-		4DA1CC5E2029E2F2004797CA /* Pause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA1CC5D2029E2F2004797CA /* Pause.swift */; };
-		4DCD045D2021E8060081001C /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD045C2021E8060081001C /* Teams.swift */; };
 		4DCD045F2021E8D30081001C /* Fighters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DCD045E2021E8D30081001C /* Fighters.swift */; };
 		4DDECD39202AF2A900D924FF /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDECD38202AF2A900D924FF /* Statistics.swift */; };
 		4DEA311620172A9A000C9740 /* Weapons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEA311520172A9A000C9740 /* Weapons.swift */; };
@@ -40,8 +38,6 @@
 		4D5090D02005015200038671 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
 		4D5A98A020225266001C8A97 /* Bonus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bonus.swift; sourceTree = "<group>"; };
 		4D9E2080200DF1D900BE8CDD /* TextAndTranslation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAndTranslation.swift; sourceTree = "<group>"; };
-		4DA1CC5D2029E2F2004797CA /* Pause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pause.swift; sourceTree = "<group>"; };
-		4DCD045C2021E8060081001C /* Teams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
 		4DCD045E2021E8D30081001C /* Fighters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fighters.swift; sourceTree = "<group>"; };
 		4DDECD38202AF2A900D924FF /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4DEA311520172A9A000C9740 /* Weapons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapons.swift; sourceTree = "<group>"; };
@@ -83,11 +79,9 @@
 				4D142C922007649F001E938B /* Team.swift */,
 				4D5A98A020225266001C8A97 /* Bonus.swift */,
 				4D5090D02005015200038671 /* TeamMember.swift */,
-				4DCD045C2021E8060081001C /* Teams.swift */,
 				4DCD045E2021E8D30081001C /* Fighters.swift */,
 				4DEA311520172A9A000C9740 /* Weapons.swift */,
 				4DDECD38202AF2A900D924FF /* Statistics.swift */,
-				4DA1CC5D2029E2F2004797CA /* Pause.swift */,
 			);
 			path = knightGame;
 			sourceTree = "<group>";
@@ -150,7 +144,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DCD045D2021E8060081001C /* Teams.swift in Sources */,
 				4D9E2081200DF1D900BE8CDD /* TextAndTranslation.swift in Sources */,
 				4DDECD39202AF2A900D924FF /* Statistics.swift in Sources */,
 				4D5090D12005015200038671 /* TeamMember.swift in Sources */,
@@ -159,7 +152,6 @@
 				4D5090C52004B5AD00038671 /* Game.swift in Sources */,
 				4D5A98A120225266001C8A97 /* Bonus.swift in Sources */,
 				4D48F6141FF3C2610093FB18 /* main.swift in Sources */,
-				4DA1CC5E2029E2F2004797CA /* Pause.swift in Sources */,
 				4DEA311620172A9A000C9740 /* Weapons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

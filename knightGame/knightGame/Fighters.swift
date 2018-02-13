@@ -3,22 +3,27 @@ class Fighters {
     var number = [TeamMember(name: ""), TeamMember(name: "")]
     var toHealNumber = [TeamMember(name: ""), TeamMember(name: "")]
     
-    // Display if a player is dead
-    
+    /**
+     Display if a player is dead
+     */
+ 
     func displayDeadMember(teamNumber: Int, member: Int) -> String {
-        if team.number[teamNumber].teamMembers[member].life <= 0 {
+        if team[teamNumber].teamMembers[member].life <= 0 {
             return "☠️"
         } else {
-            return "\(team.number[teamNumber].teamMembers[member].memberName) "
+            return "\(team[teamNumber].teamMembers[member].memberName) "
         }
     }
-    // Function to display heal power instead of attack if is a Mage
+    
+    /**
+     Display heal power instead of attack if it is a Mage
+     */
     
     func displayAttackOrhealingAbility(teamNumber: Int, member: Int) -> String {
-        if team.number[teamNumber].teamMembers[member].memberSpeciality == text.translation["Mage"]! {
-            return "💊 \(team.number[teamNumber].teamMembers[member].healingAbility)"
+        if team[teamNumber].teamMembers[member].memberSpeciality == text.translation["Mage"]! {
+            return "💊 \(team[teamNumber].teamMembers[member].healingAbility)"
         } else {
-            return "🗡 \(team.number[teamNumber].teamMembers[member].attack)"
+            return "🗡 \(team[teamNumber].teamMembers[member].attack)"
         }
     }
     
@@ -26,12 +31,15 @@ class Fighters {
     // *********************************
     // MARK: Selection of the fighters *
     // *********************************
+    /**
+     method 
+     */
     
     func infoOpponent(opponentTeam: Int, member: Int) -> String {
-        if team.number[opponentTeam].teamMembers[member].life <= 0 {
+        if team[opponentTeam].teamMembers[member].life <= 0 {
             return ""
         } else {
-            return "\(team.number[opponentTeam].teamMembers[member].memberSpeciality)   /   \(text.translation["life"]!): ❤️ \(team.number[opponentTeam].teamMembers[member].life)   /   \(team.number[opponentTeam].teamMembers[member].weaponName):  \(displayAttackOrhealingAbility(teamNumber: opponentTeam, member: member))"
+            return "\(team[opponentTeam].teamMembers[member].memberSpeciality)   /   \(text.translation["life"]!): ❤️ \(team[opponentTeam].teamMembers[member].life)   /   \(team[opponentTeam].teamMembers[member].weaponName):  \(displayAttackOrhealingAbility(teamNumber: opponentTeam, member: member))"
         }
     }
     
@@ -44,13 +52,13 @@ class Fighters {
             
             
             
-            *************************   \(text.translation["The team"]!) \(team.number[teamNumber].teamName) \(text.translation["attack"]!) !!!   *************************
+            *************************   \(text.translation["The team"]!) \(team[teamNumber].teamName) \(text.translation["attack"]!) !!!   *************************
             """)
         
         print("""
-            * 
             *
-            *     \(text.translation["opponentTeam"]!) \(team.number[opponentTeam].teamName) :
+            *
+            *     \(text.translation["opponentTeam"]!) \(team[opponentTeam].teamName) :
             *
             *     \(displayDeadMember(teamNumber: opponentTeam, member: 0))
             *     \(infoOpponent(opponentTeam: opponentTeam, member: 0))
@@ -68,10 +76,10 @@ class Fighters {
     }
     
     func infoFightersToHeal(teamNumber: Int, member: Int) -> String {
-        if team.number[teamNumber].teamMembers[member].life <= 0 {
+        if team[teamNumber].teamMembers[member].life <= 0 {
             return ""
         } else {
-            return "< \(text.translation["life"]!): ❤️ \(team.number[teamNumber].teamMembers[member].life) >"
+            return "< \(text.translation["life"]!): ❤️ \(team[teamNumber].teamMembers[member].life) >"
         }
     }
     
@@ -88,8 +96,8 @@ class Fighters {
             let member = Int(chooseFighterMember)! - 1
             switch chooseFighterMember {
             case "1", "2", "3":
-                if team.number[teamNumber].teamMembers[member].life > 0 {
-                    toHealNumber[teamNumber] = team.number[teamNumber].teamMembers[member]
+                if team[teamNumber].teamMembers[member].life > 0 {
+                    toHealNumber[teamNumber] = team[teamNumber].teamMembers[member]
                 } else {
                     print("\(text.translation["selectDeadMember"]!)")
                     chooseFightersToHeal(teamNumber: teamNumber)
@@ -102,10 +110,10 @@ class Fighters {
     }
     
     func infoAttacker(teamNumber: Int, member: Int) -> String {
-        if team.number[teamNumber].teamMembers[member].life <= 0 {
+        if team[teamNumber].teamMembers[member].life <= 0 {
             return ""
         } else {
-            return "< \(text.translation["life"]!): ❤️ \(team.number[teamNumber].teamMembers[member].life) / \(team.number[teamNumber].teamMembers[member].weaponName): \(displayAttackOrhealingAbility(teamNumber: teamNumber, member: member)) >"
+            return "< \(text.translation["life"]!): ❤️ \(team[teamNumber].teamMembers[member].life) / \(team[teamNumber].teamMembers[member].weaponName): \(displayAttackOrhealingAbility(teamNumber: teamNumber, member: member)) >"
         }
     }
     
@@ -121,10 +129,10 @@ class Fighters {
             let member = Int(chooseFighterMember)! - 1
             switch chooseFighterMember {
             case "1", "2", "3":
-                if team.number[teamNumber].teamMembers[member].life > 0 {
-                    number[teamNumber] = team.number[teamNumber].teamMembers[member]
+                if team[teamNumber].teamMembers[member].life > 0 {
+                    number[teamNumber] = team[teamNumber].teamMembers[member]
                     if enableStatistics == true {
-                        statistics.countMoves(teamNumber: teamNumber, member: member)
+                        playersStatistics[teamNumber].countMoves(teamNumber: teamNumber, member: member)
                     }
                 } else {
                     print("\(text.translation["selectDeadMember"]!)")
