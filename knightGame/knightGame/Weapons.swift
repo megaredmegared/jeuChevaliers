@@ -3,19 +3,17 @@
 
 class Weapons {
     
-    // Default weapons are x10 power for testing purpose.
-    
     /// Basics weapons
 
-    var attackWith = ["axe": 200, "sword": 100, "cudgel": 50]
+    var attackWith = ["axe": 20, "sword": 10, "cudgel": 50]
 
     /// Basics healing tools.
 
-    var healWith = ["magic wand": 150]
+    var healWith = ["magic wand": 15]
 
     /// Bonus weapons.
 
-    var attackBonus = ["poison flask": 25, "golden axe": 35, "excalibur": 50, "dead spell": 1000]
+    var attackBonus = ["poison flask": 25, "golden axe": 35, "dead spell": 100, "excalibur": 50]
 
     /// Bonus healing tools.
 
