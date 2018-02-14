@@ -1,32 +1,26 @@
+
 import Foundation
 
-/**
- Class Bonus wich let randomly apear a chest with a weapon inside.
- */
+/// Class Bonus wich let randomly apear a chest with a weapon inside.
 
 class Bonus {
-    
-    /**
-     Simulation of a 10 faces dice.
-     */
+ 
+    /// Simulation of a 10 faces dice.
     
     var diceRoll = Int(arc4random_uniform(10))
-    
-    /**
-     Special weapon that comes from the chest.
-     */
+ 
+    /// Special weapon that comes from the chest.
     
     var specialWeapon = ""
-    
-    /**
-     Random apear of the chest.
-     */
+ 
+    /// Random apear of the chest.
     
     func chest(fighterSelect number: Int) {
         diceRoll = Int(arc4random_uniform(10))
         if diceRoll > 3 { // 3 = 40% of chance to for an empty chest (array count 0 to 9).
             let speciality = fighter.number[number].memberSpeciality
             if speciality == "Mage" {
+                
                 // Pick of a bonus healing weapon.
                 
                 let randomIndex = Int(arc4random_uniform(UInt32(weapon.healWith.count))) // index creation for random pick
@@ -41,8 +35,8 @@ class Bonus {
                     ****************************
                     
                     """)
-                
             } else {
+                
                 // Pick of a bonus weapon.
                 
                 let randomIndex = Int(arc4random_uniform(UInt32(weapon.attackWith.count))) //  index creation for random pick
@@ -63,9 +57,7 @@ class Bonus {
         }
     }
     
-    /**
-     Give back the default weapon after the fight.
-     */
+    /// Give back the default weapon after the fight.
     
     func bacKToStandardWeapon(fighterSelect number: Int) {
 

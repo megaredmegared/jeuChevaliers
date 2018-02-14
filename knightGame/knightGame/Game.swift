@@ -1,16 +1,13 @@
+
 import Foundation
 
-// *****************
-// *   Game Logic  *
-// *****************
+/// Game Logic.
 
 class Game {
-    var runGame = true // Game parameter to trigger the game
+    var runGame = true // Game parameter to trigger the game.
     var bonus = Bonus()
     
-    // *****************************
-    // MARK: Display starting menu *
-    // *****************************
+    /// Display starting menu.
     
     func gameStart() {
         print(text.translation["startMenu"]!)
@@ -18,7 +15,7 @@ class Game {
             
             switch choice {
                 
-            case "1" : // Start to play
+            case "1" : // Start to play.
                 text.usedNames = [""] // Empty the collected teams and characters names for an new game.
                 team = [Team(name: ""), Team(name: "")] // Empty the teams for an new game.
                 playersStatistics = [Statistics(), Statistics()] // Empty the statistics for an new game.
@@ -30,38 +27,34 @@ class Game {
                 team[1].createTeam(teamNumber: 1)
                 fight()
                 
-            case "2" : // Display the game rules
+            case "2" : // Display the game rules.
                 gameRules()
                 
-            case "3" : // Change the default language
+            case "3" : // Change the default language.
                 text.languageChoice()
                 
-            case "4" : // Exit the game
+            case "4" : // Exit the game.
                 runGame = false
                 
-            default : // Display error message for bad entry
+            default : // Display error message for bad entry.
                 print(text.translation["selectionError"]!)
                 gameStart()
             }
         }
     }
     
-    
-    // **************************
-    // MARK: Display game rules *
-    // **************************
+    /// Display game rules.
     
     func gameRules() {
         print(text.translation["gameRules"]!)
     }
     
-    
-    // ***************************
-    // MARK: Start of the battle *
-    // ***************************
+    /// Start of the battle.
     
     func fight() {
-        let startTimer = DispatchTime.now() // starting time of the game
+        
+        let startTimer = DispatchTime.now() // starting time of the game.
+        
         while ((team[0].teamMembers[0].life > 0) || (team[0].teamMembers[1].life > 0) || (team[0].teamMembers[2].life > 0)) && ((team[1].teamMembers[0].life > 0) || (team[1].teamMembers[1].life > 0) || (team[1].teamMembers[2].life > 0)) {
             fighter.displayChooseFighter(teamNumber: 0)
             print(text.translation["chooseAttacker"]!)
@@ -102,7 +95,7 @@ class Game {
             }
         }
         
-        let endTimer = DispatchTime.now() // ending time of the game
+        let endTimer = DispatchTime.now() // ending time of the game.
         gameTime = Int(round((Double(endTimer.uptimeNanoseconds - startTimer.uptimeNanoseconds) * 0.000000001 / 60)))
         
         
@@ -123,10 +116,7 @@ class Game {
         displayStatistics()
     }
     
-    
-    // *******************************
-    // MARK: Display statistics menu *
-    // *******************************
+    /// Display statistics menu.
     
     func displayStatistics() {
         print(text.translation["statitisticsMenu"]!)
@@ -134,36 +124,30 @@ class Game {
             
             switch choice {
                 
-            case "1" : // display statistics
+            case "1" : // display statistics.
                 playersStatistics[0].displayWinner()
                 playersStatistics[0].displayResults(teamNumber: 0)
                 playersStatistics[1].displayResults(teamNumber: 1)
                 
-            case "2" : // Return to start menu
+            case "2" : // Return to start menu.
                 gameStart()
                 
-            case "3" : // Exit the game
+            case "3" : // Exit the game.
                 runGame = false
                 
-            default : // Display error message for bad entry
+            default : // Display error message for bad entry.
                 print(text.translation["selectionError"]!)
                 displayStatistics()
             }
         }
     }
     
-    
-    
-    
-    // **************************
-    // MARK: Starting game loop *
-    // **************************
+    /// Starting game loop.
     
     func gameMenu() {
         while runGame {
             gameStart()
         }
     }
-    
 }
 

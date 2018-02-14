@@ -1,30 +1,21 @@
-/**
- Class for translation of the game.
- */
+
+/// Class for translation of the game.
 
 class TextAndTranslation {
     
-    /**
-     Dictionary to stock the selected language.
-     */
+    /// Dictionary to stock the selected language.
     
     var translation = ["": ""]
-    
-    /**
-     Property to select a language.
-     */
+ 
+    /// Property to select a language.
     
     let language = "fr"
     
-    /**
-     Collected names used for teams and charachters.
-     */
+    /// Collected names used for teams and charachters.
     
     var usedNames = [""]
-    
-    /**
-     French translation.
-     */
+ 
+    /// French translation.
     
     let textFr = [
         
@@ -169,10 +160,8 @@ class TextAndTranslation {
         "youPlayed": "Vous avez combattu pendant",
         "minutes": "minutes",
         ]
-    
-    /**
-     English translation.
-     */
+ 
+    /// English translation.
     
     let textEn = [
         
@@ -318,9 +307,7 @@ class TextAndTranslation {
         "minutes": "minutes",
         ]
     
-    /**
-     Choose the language.
-     */
+    /// Choose the language.
     
     func enable(language: String) {
         if language == "fr" {
@@ -329,10 +316,8 @@ class TextAndTranslation {
             translation = textEn
         }
     }
-    
-    /**
-     Display choice menu of the languages.
-     */
+ 
+    /// Display choice menu of the languages.
     
     func languageChoice() {
         print(text.translation["chooseLanguage"]!)
@@ -352,9 +337,7 @@ class TextAndTranslation {
         }
     }
     
-    /**
-     Initialization by default in French.
-     */
+    /// Initialization by default in French.
     
     init() {
         translation = textFr

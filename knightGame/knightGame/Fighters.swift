@@ -1,11 +1,17 @@
+
+/// Create a selection of fighter for each fight.
+
 class Fighters {
     
-    var number = [TeamMember(name: ""), TeamMember(name: "")]
-    var toHealNumber = [TeamMember(name: ""), TeamMember(name: "")]
+    /// Array to stock the fighters involve in a fight, attacker is first in the array and attacked is second in the array.
     
-    /**
-     Display if a player is dead
-     */
+    var number = [TeamMember(name: ""), TeamMember(name: "")]
+    
+    /// Array to stock the fighters involve in a healing, healer is first in the array and healded is second in the array.
+    
+    var toHealNumber = [TeamMember(name: ""), TeamMember(name: "")]
+
+    /// Display ☠️ if a player is dead.
  
     func displayDeadMember(teamNumber: Int, member: Int) -> String {
         if team[teamNumber].teamMembers[member].life <= 0 {
@@ -15,9 +21,7 @@ class Fighters {
         }
     }
     
-    /**
-     Display heal power instead of attack if it is a Mage
-     */
+    /// Display heal points instead of attack points if it's a Mage.
     
     func displayAttackOrhealingAbility(teamNumber: Int, member: Int) -> String {
         if team[teamNumber].teamMembers[member].memberSpeciality == text.translation["Mage"]! {
@@ -26,15 +30,9 @@ class Fighters {
             return "🗡 \(team[teamNumber].teamMembers[member].attack)"
         }
     }
-    
-    
-    // *********************************
-    // MARK: Selection of the fighters *
-    // *********************************
-    /**
-     method 
-     */
-    
+
+    /// Display infos for opponent fighters if they are still alive.
+
     func infoOpponent(opponentTeam: Int, member: Int) -> String {
         if team[opponentTeam].teamMembers[member].life <= 0 {
             return ""
@@ -43,9 +41,11 @@ class Fighters {
         }
     }
     
+    /// Display menu for choosing the fighter who attack's (or heal).
+    
     func displayChooseFighter(teamNumber: Int) {
         
-        let opponentTeam = abs(teamNumber - 1) // caculate opponent team using absolute value for one line code var or let ?
+        let opponentTeam = abs(teamNumber - 1) // caculate opponent team using absolute value
         
         print("""
             
@@ -75,6 +75,8 @@ class Fighters {
             """)
     }
     
+    /// Display infos of the team member to heal if is still alive.
+    
     func infoFightersToHeal(teamNumber: Int, member: Int) -> String {
         if team[teamNumber].teamMembers[member].life <= 0 {
             return ""
@@ -82,6 +84,8 @@ class Fighters {
             return "< \(text.translation["life"]!): ❤️ \(team[teamNumber].teamMembers[member].life) >"
         }
     }
+    
+    /// Display menu to choose wich member to heal.
     
     func chooseFightersToHeal(teamNumber: Int) {
         
@@ -109,6 +113,8 @@ class Fighters {
         }
     }
     
+    /// Display infos of members only if still alive.
+    
     func infoAttacker(teamNumber: Int, member: Int) -> String {
         if team[teamNumber].teamMembers[member].life <= 0 {
             return ""
@@ -116,6 +122,8 @@ class Fighters {
             return "< \(text.translation["life"]!): ❤️ \(team[teamNumber].teamMembers[member].life) / \(team[teamNumber].teamMembers[member].weaponName): \(displayAttackOrhealingAbility(teamNumber: teamNumber, member: member)) >"
         }
     }
+    
+    /// Display menu to choose with wich member to attack or heal.
     
     func choose(teamNumber: Int, enableStatistics: Bool) {
         

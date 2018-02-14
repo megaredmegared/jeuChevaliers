@@ -1,23 +1,17 @@
-/**
- Class for creation of all the members of a team.
- */
+
+/// Class for creation of all the members of a team.
+
 class Team {
     
-    /**
-     Name of the team.
-     */
+    /// Name of the team.
     
     var teamName = ""
-    
-    /**
-     Array wich stock the 3 members of a team.
-     */
+ 
+    /// Array wich stock the 3 members of a team.
     
     var teamMembers = [TeamMember(name: ""), TeamMember(name: ""), TeamMember(name: "")]
-    
-    /**
-     Create a member.
-     */
+ 
+    /// Create a member.
     
     func createMember(member: Int) {
         
@@ -48,9 +42,7 @@ class Team {
         }
     }
 
-    /**
-     Create and name teams.
-     */
+    /// Create and name teams.
     
     func createTeam(teamNumber: Int) {
         var textPrompt = ""
@@ -83,6 +75,5 @@ class Team {
     init(name: String) {
         teamName = name
     }
-    
 }
 
