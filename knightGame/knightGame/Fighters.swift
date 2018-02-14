@@ -10,9 +10,9 @@ class Fighters {
     /// Array to stock the fighters involve in a healing, healer is first in the array and healded is second in the array.
     
     var toHealNumber = [TeamMember(name: ""), TeamMember(name: "")]
-
+    
     /// Display ☠️ if a player is dead.
- 
+    
     func displayDeadMember(teamNumber: Int, member: Int) -> String {
         if team[teamNumber].teamMembers[member].life <= 0 {
             return "☠️"
@@ -30,9 +30,9 @@ class Fighters {
             return "🗡 \(team[teamNumber].teamMembers[member].attack)"
         }
     }
-
+    
     /// Display infos for opponent fighters if they are still alive.
-
+    
     func infoOpponent(opponentTeam: Int, member: Int) -> String {
         if team[opponentTeam].teamMembers[member].life <= 0 {
             return ""
@@ -97,9 +97,10 @@ class Fighters {
             """)
         
         if let chooseFighterMember = readLine() {
-            let member = Int(chooseFighterMember)! - 1
+            
             switch chooseFighterMember {
             case "1", "2", "3":
+                let member = Int(chooseFighterMember)! - 1 // Fix difference of number typed and array starting at 0.
                 if team[teamNumber].teamMembers[member].life > 0 {
                     toHealNumber[teamNumber] = team[teamNumber].teamMembers[member]
                 } else {
@@ -134,9 +135,9 @@ class Fighters {
             """)
         
         if let chooseFighterMember = readLine() {
-            let member = Int(chooseFighterMember)! - 1
             switch chooseFighterMember {
             case "1", "2", "3":
+                let member = Int(chooseFighterMember)! - 1 // Fix difference of number typed and array starting at 0.
                 if team[teamNumber].teamMembers[member].life > 0 {
                     number[teamNumber] = team[teamNumber].teamMembers[member]
                     if enableStatistics == true {

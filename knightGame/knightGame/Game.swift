@@ -49,50 +49,43 @@ class Game {
         print(text.translation["gameRules"]!)
     }
     
-    /// Start of the battle.
+    /// Method for one battle.
+    
+    func battle(attacker: Int) {
+        let defender = abs(attacker - 1)
+        fighter.displayChooseFighter(teamNumber: attacker)
+        print(text.translation["chooseAttacker"]!)
+        fighter.choose(teamNumber: attacker, enableStatistics: true)
+        if fighter.number[attacker].memberSpeciality == text.translation["Mage"]! {
+            bonus.chest(fighterSelect: attacker)
+            print(text.translation["chooseSomeoneToHeal"]!)
+            fighter.chooseFightersToHeal(teamNumber: attacker)
+            fighter.toHealNumber[attacker].life += fighter.number[attacker].healingAbility
+            bonus.bacKToStandardWeapon(fighterSelect: attacker)
+        } else {
+            bonus.chest(fighterSelect: attacker)
+            print(text.translation["chooseOpponent"]!)
+            fighter.choose(teamNumber: defender, enableStatistics: false)
+            fighter.number[defender].life -= fighter.number[attacker].attack
+            bonus.bacKToStandardWeapon(fighterSelect: attacker)
+        }
+    }
+    
+    /// Start of the battles.
     
     func fight() {
         
         let startTimer = DispatchTime.now() // starting time of the game.
         
         while ((team[0].teamMembers[0].life > 0) || (team[0].teamMembers[1].life > 0) || (team[0].teamMembers[2].life > 0)) && ((team[1].teamMembers[0].life > 0) || (team[1].teamMembers[1].life > 0) || (team[1].teamMembers[2].life > 0)) {
-            fighter.displayChooseFighter(teamNumber: 0)
-            print(text.translation["chooseAttacker"]!)
-            fighter.choose(teamNumber: 0, enableStatistics: true)
-            if fighter.number[0].memberSpeciality == text.translation["Mage"]! {
-                bonus.chest(fighterSelect: 0)
-                print(text.translation["chooseSomeoneToHeal"]!)
-                fighter.chooseFightersToHeal(teamNumber: 0)
-                fighter.toHealNumber[0].life += fighter.number[0].healingAbility
-                bonus.bacKToStandardWeapon(fighterSelect: 0)
-            } else {
-                bonus.chest(fighterSelect: 0)
-                print(text.translation["chooseOpponent"]!)
-                fighter.choose(teamNumber: 1, enableStatistics: false)
-                fighter.number[1].life -= fighter.number[0].attack
-                bonus.bacKToStandardWeapon(fighterSelect: 0)
-            }
+
+            battle(attacker: 0)
             
             if (team[1].teamMembers[0].life <= 0 && team[1].teamMembers[1].life <= 0 && team[1].teamMembers[2].life <= 0) {
                 break
             }
             
-            fighter.displayChooseFighter(teamNumber: 1)
-            print(text.translation["chooseAttacker"]!)
-            fighter.choose(teamNumber: 1, enableStatistics: true)
-            if fighter.number[1].memberSpeciality == text.translation["Mage"]! {
-                bonus.chest(fighterSelect: 1)
-                print(text.translation["chooseSomeoneToHeal"]!)
-                fighter.chooseFightersToHeal(teamNumber: 1)
-                fighter.toHealNumber[1].life += fighter.number[1].healingAbility
-                bonus.bacKToStandardWeapon(fighterSelect: 1)
-            } else {
-                bonus.chest(fighterSelect: 1)
-                print(text.translation["chooseOpponent"]!)
-                fighter.choose(teamNumber: 0, enableStatistics: false)
-                fighter.number[0].life -= fighter.number[1].attack
-                bonus.bacKToStandardWeapon(fighterSelect: 1)
-            }
+            battle(attacker: 1)
         }
         
         let endTimer = DispatchTime.now() // ending time of the game.
