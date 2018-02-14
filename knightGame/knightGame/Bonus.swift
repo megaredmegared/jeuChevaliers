@@ -4,15 +4,15 @@ import Foundation
 /// Class Bonus wich let randomly apear a chest with a weapon inside.
 
 class Bonus {
- 
+    
     /// Simulation of a 10 faces dice.
     
     var diceRoll = Int(arc4random_uniform(10))
- 
+    
     /// Special weapon that comes from the chest.
     
     var specialWeapon = ""
- 
+    
     /// Random apear of the chest.
     
     func chest(fighterSelect number: Int) {
@@ -60,24 +60,24 @@ class Bonus {
     /// Give back the default weapon after the fight.
     
     func bacKToStandardWeapon(fighterSelect number: Int) {
-
-        switch fighter.number[number].memberSpeciality {
-            
-        case text.translation["Dwarf"]!:
-            fighter.number[number].attack = weapon.attackWith["axe"]!
-            fighter.number[number].weaponName = text.translation["axe"]!
-        case text.translation["Warrior"]!:
-            fighter.number[number].attack = weapon.attackWith["sword"]!
-            fighter.number[number].weaponName = text.translation["sword"]!
-        case text.translation["Colossus"]!:
-            fighter.number[number].attack = weapon.attackWith["cudgel"]!
-            fighter.number[number].weaponName = text.translation["cudgel"]!
-        case text.translation["Mage"]!:
-            fighter.number[number].healingAbility = weapon.healWith["magic wand"]!
-            fighter.number[number].weaponName = text.translation["magic wand"]!
-        default:
-            break
+        var characterWeapon = ""
+        if fighter.number[number].memberSpeciality == text.translation["Mage"]! {
+            characterWeapon = "magic wand"
+            fighter.number[number].healingAbility = weapon.healWith[characterWeapon]!
+        } else {
+            switch fighter.number[number].memberSpeciality {
+            case text.translation["Dwarf"]!:
+                characterWeapon = "axe"
+            case text.translation["Warrior"]!:
+                characterWeapon = "sword"
+            case text.translation["Colossus"]!:
+                characterWeapon = "cudgel"
+            default:
+                break
+            }
+            fighter.number[number].attack = weapon.attackWith[characterWeapon]!
         }
+        fighter.number[number].weaponName = text.translation[characterWeapon]!
     }
 }
 
