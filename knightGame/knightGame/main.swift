@@ -27,7 +27,7 @@ var team = [Team(name: ""), Team(name: "")]
 
 var playersStatistics = [Statistics(), Statistics()]
 
-/// Property to stock mesured elapsed time to be available in all class.
+/// Property to store mesured elapsed time to be available in all class.
 
 var gameTime: Int
 

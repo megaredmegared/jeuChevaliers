@@ -1,5 +1,5 @@
 
-/// Class of dictionary to stock weapons and healings tools.
+/// Class of dictionary to store weapons and healings tools.
 
 class Weapons {
     

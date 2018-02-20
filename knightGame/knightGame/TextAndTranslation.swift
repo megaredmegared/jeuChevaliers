@@ -3,7 +3,7 @@
 
 class TextAndTranslation {
     
-    /// Dictionary to stock the selected language.
+    /// Dictionary to store the selected language.
     
     var translation = ["": ""]
  

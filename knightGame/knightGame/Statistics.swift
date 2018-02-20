@@ -5,7 +5,7 @@ import Foundation
 
 class Statistics {
     
-    /// Array to stock the number of times a player has been chosen for a move (attack or heal).
+    /// Array to store the number of times a player has been chosen for a move (attack or heal).
 
     var playerNumbersOfMoves = [0, 0, 0]
     

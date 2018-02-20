@@ -7,7 +7,7 @@ class Team {
     
     var teamName = ""
  
-    /// Array wich stock the 3 members of a team.
+    /// Array wich store the 3 members of a team.
     
     var teamMembers = [TeamMember(name: ""), TeamMember(name: ""), TeamMember(name: "")]
  

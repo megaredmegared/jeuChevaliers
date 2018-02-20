@@ -3,11 +3,11 @@
 
 class Fighters {
     
-    /// Array to stock the fighters involve in a fight, attacker is first in the array and attacked is second in the array.
+    /// Array to store the fighters involve in a fight, attacker is first in the array and attacked is second in the array.
     
     var number = [TeamMember(name: ""), TeamMember(name: "")]
     
-    /// Array to stock the fighters involve in a healing, healer is first in the array and healded is second in the array.
+    /// Array to store the fighters involve in a healing, healer is first in the array and healded is second in the array.
     
     var toHealNumber = [TeamMember(name: ""), TeamMember(name: "")]
     
