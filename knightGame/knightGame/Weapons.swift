@@ -5,7 +5,7 @@ class Weapons {
     
     /// Basics weapons
 
-    var attackWith = ["axe": 20, "sword": 10, "cudgel": 50]
+    var attackWith = ["axe": 20, "sword": 10, "cudgel": 5]
 
     /// Basics healing tools.
 
